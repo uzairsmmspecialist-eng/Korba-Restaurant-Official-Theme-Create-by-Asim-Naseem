@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate, Navigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   UtensilsCrossed, 
@@ -35,7 +35,6 @@ import { Disclaimer } from './pages/Disclaimer';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Sitemap } from './pages/Sitemap';
 import { BlogPost, blogPosts } from './pages/BlogPost';
-import { NotFound } from './pages/NotFound';
 
 // --- Shared Components ---
 
@@ -1040,7 +1039,7 @@ export default function App() {
                 <Route path="/sitemap" element={<Sitemap />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/team" element={<Team />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
               </Routes>
             </AnimatePresence>
           </main>

@@ -1,0 +1,100 @@
+/* 
+  Korba Restaurant - Global Stylesheet
+  This file contains the core design tokens and component styles.
+*/
+
+:root {
+  --brand: #DC2626;
+  --brand-yellow: #FACC15;
+  --brand-dark: #B91C1C;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--zinc-950);
+  color: white;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.italic {
+  font-style: italic;
+}
+
+/* Buttons */
+.btn-hero {
+  background-color: var(--brand-yellow);
+  color: var(--zinc-900);
+  font-weight: 700;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(250, 204, 21, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+@media (min-width: 640px) {
+  .btn-hero {
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-hero:hover {
+  background-color: white;
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Layout Helpers */
+.max-w-7xl {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}

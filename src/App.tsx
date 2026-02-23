@@ -22,7 +22,9 @@ import {
   Search,
   ShoppingBag,
   ShieldCheck,
-  Info
+  Info,
+  Menu as MenuIcon,
+  X
 } from 'lucide-react';
 import { CartProvider, useCart } from './context/CartContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
@@ -66,6 +68,7 @@ const BrandBanner = () => {
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { totalItems } = useCart();
   const { user } = useAuth();
@@ -77,10 +80,25 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const isDarkPage = location.pathname === '/' || location.pathname === '/blog';
   const textColorClass = isScrolled 
     ? 'text-zinc-900' 
     : (isDarkPage ? 'text-white' : 'text-zinc-900');
+
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'Menu', path: '/menu' },
+    { name: 'Reservations', path: '/reservations' },
+    { name: 'Team', path: '/team' },
+    { name: 'About', path: '/about' },
+    { name: 'Blog', path: '/blog' },
+    { name: 'Contact', path: '/contact' }
+  ];
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -97,15 +115,7 @@ const Navbar = () => {
         </Link>
         
         <div className="hidden md:flex items-center gap-8">
-          {[
-            { name: 'Home', path: '/' },
-            { name: 'Menu', path: '/menu' },
-            { name: 'Reservations', path: '/reservations' },
-            { name: 'Team', path: '/team' },
-            { name: 'About', path: '/about' },
-            { name: 'Blog', path: '/blog' },
-            { name: 'Contact', path: '/contact' }
-          ].map((item) => (
+          {navItems.map((item) => (
             <Link 
               key={item.name} 
               to={item.path} 
@@ -128,7 +138,7 @@ const Navbar = () => {
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: 200, opacity: 1 }}
                   exit={{ width: 0, opacity: 0 }}
-                  className="overflow-hidden"
+                  className="overflow-hidden hidden sm:block"
                 >
                   <input 
                     type="text" 
@@ -147,7 +157,7 @@ const Navbar = () => {
             </AnimatePresence>
             <button 
               onClick={() => setShowSearch(!showSearch)}
-              className={`p-2 transition-colors ${isScrolled || !isDarkPage ? 'text-zinc-600 hover:text-brand' : 'text-white hover:text-brand-yellow'}`}
+              className={`p-2 transition-colors hidden sm:block ${isScrolled || !isDarkPage ? 'text-zinc-600 hover:text-brand' : 'text-white hover:text-brand-yellow'}`}
             >
               <Search size={20} />
             </button>
@@ -171,8 +181,71 @@ const Navbar = () => {
               Sign In
             </Link>
           )}
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className={`md:hidden p-2 transition-colors ${isScrolled || !isDarkPage ? 'text-zinc-900' : 'text-white'}`}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={28} /> : <MenuIcon size={28} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 bg-white shadow-2xl border-t border-zinc-100 md:hidden flex flex-col"
+          >
+            <div className="flex flex-col p-6 space-y-4">
+              {navItems.map((item) => (
+                <Link 
+                  key={item.name} 
+                  to={item.path} 
+                  className={`text-lg font-bold uppercase tracking-widest py-2 border-b border-zinc-100 ${
+                    location.pathname === item.path ? 'text-brand' : 'text-zinc-900'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              <div className="pt-4">
+                <Link to="/menu" className="btn-primary w-full justify-center bg-brand hover:bg-brand-dark text-white">
+                  Order Now
+                </Link>
+              </div>
+
+              <div className="pt-6 mt-2 border-t border-zinc-100">
+                <div className="flex items-center gap-4 mb-4 text-zinc-600">
+                  <Phone size={18} className="text-brand" />
+                  <span className="text-sm font-medium">+92 (300) 123-4567</span>
+                </div>
+                <div className="flex items-center gap-4 mb-6 text-zinc-600">
+                  <Mail size={18} className="text-brand" />
+                  <span className="text-sm font-medium">hello@korba.com</span>
+                </div>
+                
+                <div className="flex gap-4">
+                  {[
+                    { Icon: Instagram, url: 'https://instagram.com' },
+                    { Icon: Facebook, url: 'https://facebook.com' },
+                    { Icon: Twitter, url: 'https://twitter.com' }
+                  ].map(({ Icon, url }, i) => (
+                    <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-zinc-100 flex items-center justify-center hover:bg-brand hover:text-white transition-colors text-zinc-600">
+                      <Icon size={18} />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
@@ -324,12 +397,12 @@ const Home = () => (
             <Star size={14} fill="currentColor" />
             Noshahra's Finest Dining
           </div>
-          <h1 className="text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-8 text-white">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-8 text-white">
             Authentic <br />
             <span className="text-brand-yellow italic font-serif">Kachay Beef</span> <br />
             Pulao
           </h1>
-          <p className="text-xl text-zinc-400 max-w-lg mb-12 leading-relaxed font-medium">
+          <p className="text-lg sm:text-xl text-zinc-400 max-w-lg mb-12 leading-relaxed font-medium">
             Experience the legendary taste of our slow-cooked beef pulao and charcoal-grilled seekh kababs. A royal feast awaits you.
           </p>
           <div className="flex flex-wrap gap-5 mb-12">
@@ -364,11 +437,11 @@ const Home = () => (
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="relative"
+          className="relative mt-12 lg:mt-0"
         >
-          <div className="grid grid-cols-2 gap-6">
-            <div className="space-y-6 pt-12 animate-float">
-              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden border-4 border-brand-yellow/30 shadow-2xl group">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-12 animate-float">
+              <div className="aspect-[4/5] rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand-yellow/30 shadow-2xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-pulao-hero/800/1000" 
                   alt="Gourmet Pulao" 
@@ -376,7 +449,7 @@ const Home = () => (
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="aspect-square rounded-[3rem] overflow-hidden border-4 border-brand/30 shadow-2xl group">
+              <div className="aspect-square rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand/30 shadow-2xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-rolls-hero/800/800" 
                   alt="Spring Rolls" 
@@ -385,8 +458,8 @@ const Home = () => (
                 />
               </div>
             </div>
-            <div className="space-y-6 animate-float-delayed">
-              <div className="aspect-square rounded-[3rem] overflow-hidden border-4 border-brand/30 shadow-2xl group">
+            <div className="space-y-4 sm:space-y-6 animate-float-delayed">
+              <div className="aspect-square rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand/30 shadow-2xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-shawarma-hero/800/800" 
                   alt="Chicken Shawarma" 
@@ -394,7 +467,7 @@ const Home = () => (
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="aspect-[4/5] rounded-[3rem] overflow-hidden border-4 border-brand-yellow/30 shadow-2xl group">
+              <div className="aspect-[4/5] rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand-yellow/30 shadow-2xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-fries-hero/800/1000" 
                   alt="Crispy French Fries" 
@@ -409,9 +482,9 @@ const Home = () => (
           <motion.div 
             animate={{ rotate: 360 }}
             transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-10 -right-10 w-32 h-32 bg-brand-yellow rounded-full flex items-center justify-center p-4 shadow-2xl border-4 border-zinc-900"
+            className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-32 sm:h-32 bg-brand-yellow rounded-full flex items-center justify-center p-4 shadow-2xl border-4 border-zinc-900 z-10"
           >
-            <p className="text-zinc-900 font-black text-center text-xs leading-tight uppercase tracking-tighter">
+            <p className="text-zinc-900 font-black text-center text-[10px] sm:text-xs leading-tight uppercase tracking-tighter">
               Best in <br /> Noshahra <br /> Cantt
             </p>
           </motion.div>

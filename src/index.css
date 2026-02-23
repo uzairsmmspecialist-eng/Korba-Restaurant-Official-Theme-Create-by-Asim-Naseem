@@ -27,11 +27,11 @@
 }
 
 .btn-hero {
-  @apply bg-brand-yellow text-zinc-900 font-bold px-10 py-5 rounded-full transition-all duration-300 shadow-xl shadow-brand-yellow/20 flex items-center gap-2 hover:bg-white hover:scale-105 active:scale-95;
+  @apply bg-brand-yellow text-zinc-900 font-bold px-8 py-4 sm:px-10 sm:py-5 rounded-full transition-all duration-300 shadow-xl shadow-brand-yellow/20 flex items-center justify-center gap-2 hover:bg-white hover:scale-105 active:scale-95 w-full sm:w-auto;
 }
 
 .btn-hero-alt {
-  @apply bg-brand text-white font-bold px-10 py-5 rounded-full transition-all duration-300 shadow-xl shadow-brand/20 flex items-center gap-2 hover:bg-brand-dark hover:scale-105 active:scale-95;
+  @apply bg-brand text-white font-bold px-8 py-4 sm:px-10 sm:py-5 rounded-full transition-all duration-300 shadow-xl shadow-brand/20 flex items-center justify-center gap-2 hover:bg-brand-dark hover:scale-105 active:scale-95 w-full sm:w-auto;
 }
 
 @keyframes blink {

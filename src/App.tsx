@@ -35,6 +35,7 @@ import { Disclaimer } from './pages/Disclaimer';
 import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Sitemap } from './pages/Sitemap';
 import { BlogPost, blogPosts } from './pages/BlogPost';
+import { NotFound } from './pages/NotFound';
 import { Login, Signup } from './pages/Auth';
 import { Chatbot } from './components/Chatbot';
 
@@ -192,8 +193,12 @@ const Footer = () => (
             Crafting culinary excellence through the fusion of tradition and innovation. Experience the legendary taste of Noshahra Cantt.
           </p>
           <div className="flex gap-4">
-            {[Instagram, Facebook, Twitter].map((Icon, i) => (
-              <a key={i} href="#" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition-all border border-white/10">
+            {[
+              { Icon: Instagram, url: 'https://instagram.com' },
+              { Icon: Facebook, url: 'https://facebook.com' },
+              { Icon: Twitter, url: 'https://twitter.com' }
+            ].map(({ Icon, url }, i) => (
+              <a key={i} href={url} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-brand-yellow hover:text-zinc-900 transition-all border border-white/10">
                 <Icon size={20} />
               </a>
             ))}
@@ -331,7 +336,7 @@ const Home = () => (
             <Link to="/menu" className="btn-hero">
               Order Your Feast <ChevronRight size={20} />
             </Link>
-            <Link to="/team" className="btn-hero">
+            <Link to="/team" className="btn-hero-alt">
               Meet Our Team
             </Link>
           </div>
@@ -961,6 +966,7 @@ export default function App() {
                   <Route path="/team" element={<Team />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/signup" element={<Signup />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </AnimatePresence>
             </main>

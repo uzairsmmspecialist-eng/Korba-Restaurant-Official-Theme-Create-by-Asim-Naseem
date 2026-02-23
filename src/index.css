@@ -30,6 +30,10 @@
   @apply bg-brand-yellow text-zinc-900 font-bold px-10 py-5 rounded-full transition-all duration-300 shadow-xl shadow-brand-yellow/20 flex items-center gap-2 hover:bg-white hover:scale-105 active:scale-95;
 }
 
+.btn-hero-alt {
+  @apply bg-brand text-white font-bold px-10 py-5 rounded-full transition-all duration-300 shadow-xl shadow-brand/20 flex items-center gap-2 hover:bg-brand-dark hover:scale-105 active:scale-95;
+}
+
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.8; transform: scale(1.02); }

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Clock, Users, CheckCircle2, ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export const Reservations = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,9 +46,9 @@ export const Reservations = () => {
           >
             Make Another Booking
           </button>
-          <a href="/" className="btn-primary px-10 py-4 text-lg bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none">
+          <Link to="/" className="btn-primary px-10 py-4 text-lg bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none">
             Return Home
-          </a>
+          </Link>
         </div>
       </motion.div>
     );

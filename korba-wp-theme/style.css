@@ -1,0 +1,29 @@
+/*
+Theme Name: Korba Restaurant
+Theme URI: https://korba.com
+Author: AI Assistant
+Description: A high-performance, modern restaurant theme for Korba, featuring a bold dark aesthetic and optimized for conversion.
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: korba
+*/
+
+/* 
+  This stylesheet is primarily for theme identification. 
+  Styles are enqueued via functions.php using Tailwind CSS.
+*/
+
+:root {
+  --brand: #DC2626;
+  --brand-yellow: #FACC15;
+  --brand-dark: #B91C1C;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--zinc-950);
+  color: white;
+}

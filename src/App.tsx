@@ -386,21 +386,21 @@ const Home = () => (
             <span className="text-brand-yellow italic font-serif">Kachay Beef</span> <br />
             Pulao
           </h1>
-          <p className="text-sm sm:text-xl text-zinc-400 max-w-lg mb-8 leading-relaxed font-medium pr-4 sm:pr-0">
+          <p className="text-sm sm:text-xl text-zinc-400 max-w-[280px] sm:max-w-lg mb-6 sm:mb-8 leading-relaxed font-medium">
             Experience the legendary taste of our slow-cooked beef pulao and charcoal-grilled seekh kababs. A royal feast awaits you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-8">
-            <Link to="/menu" className="btn-hero">
-              Your Order <ChevronRight size={18} />
+          <div className="flex mb-6 sm:mb-8">
+            <Link to="/menu" className="btn-hero !w-auto !px-4 !py-2 !text-[10px]">
+              Your Order <ChevronRight size={14} />
             </Link>
           </div>
 
-          <div className="flex items-center gap-4 mb-12">
-            <div className="flex -space-x-3">
+          <div className="flex items-center gap-3 mb-10 sm:mb-12">
+            <div className="flex -space-x-2 sm:-space-x-3">
               {[1, 2, 3, 4, 5].map((i) => (
                 <img
                   key={i}
-                  className="inline-block h-10 w-10 rounded-full ring-2 ring-zinc-900 object-cover"
+                  className="inline-block h-8 w-8 sm:h-10 sm:w-10 rounded-full ring-2 ring-zinc-900 object-cover"
                   src={`https://picsum.photos/seed/user${i}/100/100`}
                   alt={`User ${i}`}
                   referrerPolicy="no-referrer"
@@ -408,12 +408,12 @@ const Home = () => (
               ))}
             </div>
             <div className="flex flex-col">
-              <div className="flex text-brand-yellow mb-1">
+              <div className="flex text-brand-yellow mb-0.5">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} size={14} fill="currentColor" />
+                  <Star key={i} size={10} fill="currentColor" className="sm:w-[14px] sm:h-[14px]" />
                 ))}
               </div>
-              <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em]">
+              <p className="text-white/60 text-[8px] sm:text-[10px] font-bold uppercase tracking-[0.15em] whitespace-nowrap">
                 Trusted by 40k customers
               </p>
             </div>

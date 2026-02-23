@@ -27,10 +27,8 @@ import {
   X
 } from 'lucide-react';
 import { CartProvider, useCart } from './context/CartContext';
-import { AuthProvider, useAuth } from './context/AuthContext';
 import { Menu } from './pages/Menu';
 import { Checkout } from './pages/Checkout';
-import { Dashboard } from './pages/Dashboard';
 import { Team } from './pages/Team';
 import { Reservations } from './pages/Reservations';
 import { Disclaimer } from './pages/Disclaimer';
@@ -38,7 +36,6 @@ import { PrivacyPolicy } from './pages/PrivacyPolicy';
 import { Sitemap } from './pages/Sitemap';
 import { BlogPost, blogPosts } from './pages/BlogPost';
 import { NotFound } from './pages/NotFound';
-import { Login, Signup } from './pages/Auth';
 
 // --- Shared Components ---
 
@@ -70,7 +67,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
   const { totalItems } = useCart();
-  const { user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -171,16 +167,6 @@ const Navbar = () => {
             )}
           </Link>
           
-          {user ? (
-            <Link to="/dashboard" className="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-bold text-sm hover:bg-brand-yellow hover:text-zinc-900 transition-all shadow-lg">
-              {user.name.charAt(0)}
-            </Link>
-          ) : (
-            <Link to="/login" className="btn-primary text-sm hidden sm:flex bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none">
-              Sign In
-            </Link>
-          )}
-
           {/* Mobile Menu Toggle */}
           <button 
             className={`md:hidden p-2 transition-colors ${isScrolled || !isDarkPage ? 'text-zinc-900' : 'text-white'}`}
@@ -287,8 +273,7 @@ const Footer = () => (
               { name: 'Team', path: '/team' },
               { name: 'About', path: '/about' },
               { name: 'Blog', path: '/blog' },
-              { name: 'Contact', path: '/contact' },
-              { name: 'Dashboard', path: '/dashboard' }
+              { name: 'Contact', path: '/contact' }
             ].map((item) => (
               <li key={item.name}>
                 <Link to={item.path} className="text-zinc-400 hover:text-brand transition-colors text-sm flex items-center gap-2 group">
@@ -401,16 +386,37 @@ const Home = () => (
             <span className="text-brand-yellow italic font-serif">Kachay Beef</span> <br />
             Pulao
           </h1>
-          <p className="text-base sm:text-xl text-zinc-400 max-w-lg mb-12 leading-relaxed font-medium">
+          <p className="text-sm sm:text-xl text-zinc-400 max-w-lg mb-8 leading-relaxed font-medium pr-4 sm:pr-0">
             Experience the legendary taste of our slow-cooked beef pulao and charcoal-grilled seekh kababs. A royal feast awaits you.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-8">
             <Link to="/menu" className="btn-hero">
-              Order Your Feast <ChevronRight size={20} />
+              Your Order <ChevronRight size={18} />
             </Link>
-            <Link to="/team" className="btn-hero-alt">
-              Meet Our Team
-            </Link>
+          </div>
+
+          <div className="flex items-center gap-4 mb-12">
+            <div className="flex -space-x-3">
+              {[1, 2, 3, 4, 5].map((i) => (
+                <img
+                  key={i}
+                  className="inline-block h-10 w-10 rounded-full ring-2 ring-zinc-900 object-cover"
+                  src={`https://picsum.photos/seed/user${i}/100/100`}
+                  alt={`User ${i}`}
+                  referrerPolicy="no-referrer"
+                />
+              ))}
+            </div>
+            <div className="flex flex-col">
+              <div className="flex text-brand-yellow mb-1">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <Star key={i} size={14} fill="currentColor" />
+                ))}
+              </div>
+              <p className="text-white/60 text-[10px] font-bold uppercase tracking-[0.2em]">
+                Trusted by 40k customers
+              </p>
+            </div>
           </div>
 
           {/* Hero Scrolling Products */}
@@ -436,11 +442,11 @@ const Home = () => (
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="relative mt-12 lg:mt-0"
+          className="relative mt-6 sm:mt-12 lg:mt-0 px-2 sm:px-0"
         >
-          <div className="grid grid-cols-2 gap-4 sm:gap-6">
-            <div className="space-y-4 sm:space-y-6 pt-6 sm:pt-12 animate-float">
-              <div className="aspect-[4/5] rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand-yellow/30 shadow-2xl group">
+          <div className="grid grid-cols-2 gap-2 sm:gap-6 max-w-[280px] sm:max-w-md mx-auto lg:max-w-none">
+            <div className="space-y-2 sm:space-y-6 pt-2 sm:pt-12 animate-float">
+              <div className="aspect-[4/5] rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand-yellow/30 shadow-xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-pulao-hero/800/1000" 
                   alt="Gourmet Pulao" 
@@ -448,7 +454,7 @@ const Home = () => (
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="aspect-square rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand/30 shadow-2xl group">
+              <div className="aspect-square rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand/30 shadow-xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-rolls-hero/800/800" 
                   alt="Spring Rolls" 
@@ -457,8 +463,8 @@ const Home = () => (
                 />
               </div>
             </div>
-            <div className="space-y-4 sm:space-y-6 animate-float-delayed">
-              <div className="aspect-square rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand/30 shadow-2xl group">
+            <div className="space-y-2 sm:space-y-6 animate-float-delayed">
+              <div className="aspect-square rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand/30 shadow-xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-shawarma-hero/800/800" 
                   alt="Chicken Shawarma" 
@@ -466,7 +472,7 @@ const Home = () => (
                   referrerPolicy="no-referrer"
                 />
               </div>
-              <div className="aspect-[4/5] rounded-[2rem] sm:rounded-[3rem] overflow-hidden border-4 border-brand-yellow/30 shadow-2xl group">
+              <div className="aspect-[4/5] rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand-yellow/30 shadow-xl group">
                 <img 
                   src="https://picsum.photos/seed/pakistan-fries-hero/800/1000" 
                   alt="Crispy French Fries" 
@@ -1015,38 +1021,33 @@ const Contact = () => (
 
 export default function App() {
   return (
-    <AuthProvider>
-      <CartProvider>
-        <BrowserRouter>
-          <div className="min-h-screen selection:bg-brand selection:text-zinc-900 flex flex-col">
-            <Navbar />
-            <main className="flex-grow">
-              <AnimatePresence mode="wait">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/menu" element={<Menu />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:slug" element={<BlogPost />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/reservations" element={<Reservations />} />
-                  <Route path="/disclaimer" element={<Disclaimer />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/sitemap" element={<Sitemap />} />
-                  <Route path="/checkout" element={<Checkout />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/team" element={<Team />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </AnimatePresence>
-            </main>
-            <Footer />
-          </div>
-        </BrowserRouter>
-      </CartProvider>
-    </AuthProvider>
+    <CartProvider>
+      <BrowserRouter>
+        <div className="min-h-screen selection:bg-brand selection:text-zinc-900 flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/menu" element={<Menu />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/reservations" element={<Reservations />} />
+                <Route path="/disclaimer" element={<Disclaimer />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/sitemap" element={<Sitemap />} />
+                <Route path="/checkout" element={<Checkout />} />
+                <Route path="/team" element={<Team />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnimatePresence>
+          </main>
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

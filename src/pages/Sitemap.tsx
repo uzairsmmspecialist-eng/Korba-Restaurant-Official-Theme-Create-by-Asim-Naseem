@@ -19,9 +19,6 @@ export const Sitemap = () => {
       title: 'Guest Services',
       links: [
         { name: 'Book a Table', path: '/reservations' },
-        { name: 'User Dashboard', path: '/dashboard' },
-        { name: 'Sign In', path: '/login' },
-        { name: 'Create Account', path: '/signup' },
       ]
     },
     {

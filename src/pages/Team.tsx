@@ -43,26 +43,26 @@ export const Team = () => {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="pt-32 pb-24 px-6 bg-zinc-50 min-h-screen"
+      className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 bg-zinc-50 min-h-screen"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 sm:mb-20">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Our Culinary Masters</p>
-          <h1 className="text-6xl font-bold tracking-tight mb-6">Meet Our Expert Chefs</h1>
-          <p className="text-zinc-500 max-w-2xl mx-auto text-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4 sm:mb-6">Meet Our Expert Chefs</h1>
+          <p className="text-zinc-500 max-w-2xl mx-auto text-base sm:text-lg px-4">
             The hands behind the magic. Our team of senior chefs brings decades of experience and passion to every dish.
           </p>
         </div>
 
         {/* Senior Chefs Section */}
-        <div className="grid md:grid-cols-3 gap-10 mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10 mb-20 sm:mb-32">
           {CHEFS.map((chef, i) => (
             <motion.div 
               key={chef.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-zinc-100 group"
+              className="bg-white rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-xl border border-zinc-100 group"
             >
               <div className="aspect-square overflow-hidden relative">
                 <img 
@@ -70,28 +70,28 @@ export const Team = () => {
                   alt={chef.name} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-8 gap-4">
-                  <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-zinc-900 hover:bg-brand hover:text-white transition-colors">
-                    <Instagram size={18} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6 sm:pb-8 gap-3 sm:gap-4">
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center text-zinc-900 hover:bg-brand hover:text-white transition-colors">
+                    <Instagram size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </button>
-                  <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-zinc-900 hover:bg-brand hover:text-white transition-colors">
-                    <Twitter size={18} />
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center text-zinc-900 hover:bg-brand hover:text-white transition-colors">
+                    <Twitter size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </button>
-                  <button className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-zinc-900 hover:bg-brand hover:text-white transition-colors">
-                    <Facebook size={18} />
+                  <button className="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center text-zinc-900 hover:bg-brand hover:text-white transition-colors">
+                    <Facebook size={16} className="sm:w-[18px] sm:h-[18px]" />
                   </button>
                 </div>
               </div>
-              <div className="p-10 text-center">
-                <div className="inline-flex items-center gap-1 text-brand-yellow mb-4">
+              <div className="p-6 sm:p-10 text-center">
+                <div className="inline-flex items-center gap-1 text-brand-yellow mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                 </div>
-                <h3 className="text-2xl font-bold mb-2">{chef.name}</h3>
-                <p className="text-brand font-bold text-xs uppercase tracking-widest mb-6">{chef.role}</p>
-                <p className="text-zinc-500 text-sm leading-relaxed mb-6 italic">"{chef.bio}"</p>
-                <div className="pt-6 border-t border-zinc-100">
-                  <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest mb-1">Specialty</p>
-                  <p className="font-bold text-zinc-900">{chef.specialty}</p>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">{chef.name}</h3>
+                <p className="text-brand font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-4 sm:mb-6">{chef.role}</p>
+                <p className="text-zinc-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 italic">"{chef.bio}"</p>
+                <div className="pt-4 sm:pt-6 border-t border-zinc-100">
+                  <p className="text-[10px] sm:text-xs text-zinc-400 font-bold uppercase tracking-widest mb-1">Specialty</p>
+                  <p className="font-bold text-sm sm:text-base text-zinc-900">{chef.specialty}</p>
                 </div>
               </div>
             </motion.div>
@@ -99,12 +99,12 @@ export const Team = () => {
         </div>
 
         {/* Team Members Section */}
-        <div className="bg-zinc-900 rounded-[4rem] p-16 md:p-24 text-white">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold mb-6">Our Dedicated Team</h2>
-            <p className="text-zinc-400 max-w-xl mx-auto">The backbone of Korba Restaurant, ensuring every guest receives royal treatment.</p>
+        <div className="bg-zinc-900 rounded-[2rem] sm:rounded-[4rem] p-8 sm:p-16 md:p-24 text-white">
+          <div className="text-center mb-12 sm:mb-20">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 sm:mb-6">Our Dedicated Team</h2>
+            <p className="text-zinc-400 max-w-xl mx-auto text-sm sm:text-base">The backbone of Korba Restaurant, ensuring every guest receives royal treatment.</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8">
             {TEAM_MEMBERS.map((member, i) => (
               <motion.div 
                 key={member.name}
@@ -112,10 +112,10 @@ export const Team = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="text-center p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                className="text-center p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
               >
-                <p className="font-bold text-lg mb-1">{member.name}</p>
-                <p className="text-xs text-brand-yellow font-bold uppercase tracking-widest">{member.role}</p>
+                <p className="font-bold text-base sm:text-lg mb-1">{member.name}</p>
+                <p className="text-[10px] sm:text-xs text-brand-yellow font-bold uppercase tracking-widest">{member.role}</p>
               </motion.div>
             ))}
           </div>

@@ -29,24 +29,24 @@ export const Reservations = () => {
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="pt-40 pb-24 px-6 text-center max-w-2xl mx-auto"
+        className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-4 sm:px-6 text-center max-w-2xl mx-auto"
       >
-        <div className="w-24 h-24 bg-brand rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-brand/20">
-          <CheckCircle2 size={48} className="text-white" />
+        <div className="w-20 h-20 sm:w-24 sm:h-24 bg-brand rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8 shadow-2xl shadow-brand/20">
+          <CheckCircle2 size={40} className="text-white sm:w-12 sm:h-12" />
         </div>
-        <h1 className="text-5xl font-bold mb-6">Table Reserved!</h1>
-        <p className="text-xl text-zinc-500 mb-12 leading-relaxed">
+        <h1 className="text-4xl sm:text-5xl font-bold mb-4 sm:mb-6">Table Reserved!</h1>
+        <p className="text-lg sm:text-xl text-zinc-500 mb-8 sm:mb-12 leading-relaxed">
           Your table for {formData.guests} guests on {formData.date} at {formData.time} has been successfully booked. 
           A confirmation email and SMS have been sent to you.
         </p>
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
           <button 
             onClick={() => setIsSubmitted(false)}
-            className="btn-secondary px-10 py-4 text-lg"
+            className="btn-secondary px-8 py-4 sm:px-10 sm:py-4 text-base sm:text-lg w-full sm:w-auto"
           >
             Make Another Booking
           </button>
-          <Link to="/" className="btn-primary px-10 py-4 text-lg bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none">
+          <Link to="/" className="btn-primary px-8 py-4 sm:px-10 sm:py-4 text-base sm:text-lg bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none w-full sm:w-auto justify-center">
             Return Home
           </Link>
         </div>
@@ -59,93 +59,93 @@ export const Reservations = () => {
       initial={{ opacity: 0 }} 
       animate={{ opacity: 1 }} 
       exit={{ opacity: 0 }}
-      className="pt-32 pb-24 px-6 bg-zinc-50 min-h-screen"
+      className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 sm:px-6 bg-zinc-50 min-h-screen"
     >
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-start">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Reservations</p>
-            <h1 className="text-6xl font-bold tracking-tight mb-8">Book Your Table</h1>
-            <p className="text-zinc-500 text-lg mb-12 leading-relaxed">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 sm:mb-8">Book Your Table</h1>
+            <p className="text-zinc-500 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
               Experience royal dining at Korba. Whether it's a family dinner or a special celebration, we ensure your experience is legendary.
             </p>
 
-            <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
-                  <MapPin size={28} />
+            <div className="space-y-6 sm:space-y-8">
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
+                  <MapPin size={24} className="sm:w-7 sm:h-7" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2">Our Location</h3>
-                  <p className="text-zinc-500">123 Culinary Lane, Noshahra Cantt, Pakistan</p>
+                  <h3 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Our Location</h3>
+                  <p className="text-zinc-500 text-sm sm:text-base">123 Culinary Lane, Noshahra Cantt, Pakistan</p>
                 </div>
               </div>
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
-                  <Phone size={28} />
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
+                  <Phone size={24} className="sm:w-7 sm:h-7" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2">Phone</h3>
-                  <p className="text-zinc-500">+92 (300) 123-4567</p>
+                  <h3 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Phone</h3>
+                  <p className="text-zinc-500 text-sm sm:text-base">+92 (300) 123-4567</p>
                 </div>
               </div>
-              <div className="flex items-start gap-6">
-                <div className="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
-                  <Clock size={28} />
+              <div className="flex items-start gap-4 sm:gap-6">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
+                  <Clock size={24} className="sm:w-7 sm:h-7" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2">Opening Hours</h3>
-                  <p className="text-zinc-500">Mon - Sun: 12:00 PM - 11:00 PM (Peshawar Time)</p>
+                  <h3 className="font-bold text-lg sm:text-xl mb-1 sm:mb-2">Opening Hours</h3>
+                  <p className="text-zinc-500 text-sm sm:text-base">Mon - Sun: 12:00 PM - 11:00 PM (Peshawar Time)</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-[3rem] p-10 md:p-16 border border-zinc-100 shadow-xl">
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid md:grid-cols-2 gap-8">
+          <div className="bg-white rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-10 md:p-16 border border-zinc-100 shadow-xl">
+            <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Full Name</label>
+                  <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Full Name</label>
                   <input 
                     required
                     type="text" 
                     placeholder="John Doe"
                     value={formData.name}
                     onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
+                  <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
                   <input 
                     required
                     type="email" 
                     placeholder="john@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Phone Number</label>
+                  <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Phone Number</label>
                   <input 
                     required
                     type="tel" 
                     placeholder="+92 300 1234567"
                     value={formData.phone}
                     onChange={(e) => setFormData({...formData, phone: e.target.value})}
-                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Number of Guests</label>
+                  <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Number of Guests</label>
                   <select 
                     value={formData.guests}
                     onChange={(e) => setFormData({...formData, guests: e.target.value})}
-                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all appearance-none"
+                    className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all appearance-none"
                   >
                     {[1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20].map(n => (
                       <option key={n} value={n}>{n} {n === 1 ? 'Guest' : 'Guests'}</option>
@@ -154,29 +154,29 @@ export const Reservations = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Date</label>
+                  <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Date</label>
                   <div className="relative">
-                    <Calendar className="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+                    <Calendar className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                     <input 
                       required
                       type="date" 
                       value={formData.date}
                       onChange={(e) => setFormData({...formData, date: e.target.value})}
-                      className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-16 pr-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                      className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-12 sm:pl-16 pr-4 sm:pr-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
                     />
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Time (Peshawar Time)</label>
+                  <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Time (Peshawar Time)</label>
                   <div className="relative">
-                    <Clock className="absolute left-6 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
+                    <Clock className="absolute left-4 sm:left-6 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                     <select 
                       required
                       value={formData.time}
                       onChange={(e) => setFormData({...formData, time: e.target.value})}
-                      className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-16 pr-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all appearance-none"
+                      className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-12 sm:pl-16 pr-4 sm:pr-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all appearance-none"
                     >
                       <option value="">Select Time</option>
                       {['12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'].map(t => (
@@ -188,17 +188,17 @@ export const Reservations = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Special Requests (Optional)</label>
+                <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Special Requests (Optional)</label>
                 <textarea 
                   rows={4}
                   placeholder="Any dietary requirements or special occasions?"
                   value={formData.specialRequest}
                   onChange={(e) => setFormData({...formData, specialRequest: e.target.value})}
-                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all resize-none"
+                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all resize-none"
                 />
               </div>
 
-              <button type="submit" className="btn-primary w-full justify-center py-5 text-lg bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none shadow-xl shadow-brand/20">
+              <button type="submit" className="btn-primary w-full justify-center py-4 sm:py-5 text-base sm:text-lg bg-brand hover:bg-brand-yellow hover:text-zinc-900 border-none shadow-xl shadow-brand/20">
                 Confirm Reservation <ArrowRight size={20} />
               </button>
             </form>

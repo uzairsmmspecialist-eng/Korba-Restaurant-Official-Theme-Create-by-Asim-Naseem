@@ -17,24 +17,24 @@ export const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-50 px-6 py-32">
+    <div className="min-h-screen flex items-center justify-center bg-zinc-50 px-4 sm:px-6 py-24 sm:py-32">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
-        <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-brand rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand/20">
-            <UtensilsCrossed size={32} className="text-zinc-900" />
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-brand rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl shadow-brand/20">
+            <UtensilsCrossed size={28} className="text-zinc-900 sm:w-8 sm:h-8" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">Welcome Back</h1>
-          <p className="text-zinc-500 mt-2">Sign in to your Korba account</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Welcome Back</h1>
+          <p className="text-zinc-500 mt-2 text-sm sm:text-base">Sign in to your Korba account</p>
         </div>
 
-        <div className="bg-white rounded-[2.5rem] p-10 border border-zinc-200 shadow-xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 border border-zinc-200 shadow-xl">
+          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
+              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                 <input 
@@ -43,12 +43,12 @@ export const Login = () => {
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   placeholder="name@example.com"
-                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-12 pr-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-12 pr-4 sm:pr-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
                 />
               </div>
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Password</label>
+              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Password</label>
               <div className="relative">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-400" size={18} />
                 <input 
@@ -57,18 +57,18 @@ export const Login = () => {
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-12 pr-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                  className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl pl-12 pr-4 sm:pr-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
                 />
               </div>
             </div>
             
-            <button type="submit" className="btn-primary w-full justify-center py-5 text-lg group">
+            <button type="submit" className="btn-primary w-full justify-center py-4 sm:py-5 text-base sm:text-lg group">
               Sign In <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </form>
 
-          <div className="mt-10 text-center">
-            <p className="text-zinc-500 text-sm">
+          <div className="mt-8 sm:mt-10 text-center">
+            <p className="text-zinc-500 text-xs sm:text-sm">
               Don't have an account? {' '}
               <Link to="/signup" className="text-brand-dark font-bold hover:underline">Create one now</Link>
             </p>
@@ -93,63 +93,63 @@ export const Signup = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-50 px-6 py-32">
+    <div className="min-h-screen flex items-center justify-center bg-zinc-50 px-4 sm:px-6 py-24 sm:py-32">
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         className="w-full max-w-md"
       >
-        <div className="text-center mb-10">
-          <div className="w-16 h-16 bg-brand rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-brand/20">
-            <UtensilsCrossed size={32} className="text-zinc-900" />
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-brand rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-xl shadow-brand/20">
+            <UtensilsCrossed size={28} className="text-zinc-900 sm:w-8 sm:h-8" />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">Join the Feast</h1>
-          <p className="text-zinc-500 mt-2">Create your Korba account today</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">Join the Feast</h1>
+          <p className="text-zinc-500 mt-2 text-sm sm:text-base">Create your Korba account today</p>
         </div>
 
-        <div className="bg-white rounded-[2.5rem] p-10 border border-zinc-200 shadow-xl">
-          <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="bg-white rounded-[2rem] sm:rounded-[2.5rem] p-6 sm:p-10 border border-zinc-200 shadow-xl">
+          <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Full Name</label>
+              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Full Name</label>
               <input 
                 required
                 type="text" 
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="John Doe"
-                className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
+              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
               <input 
                 required
                 type="email" 
                 value={email}
                 onChange={e => setEmail(e.target.value)}
                 placeholder="name@example.com"
-                className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
               />
             </div>
             <div className="space-y-2">
-              <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Password</label>
+              <label className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-zinc-400">Password</label>
               <input 
                 required
                 type="password" 
                 value={password}
                 onChange={e => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-6 py-4 focus:outline-none focus:ring-2 focus:ring-brand transition-all"
+                className="w-full bg-zinc-50 border border-zinc-100 rounded-2xl px-4 sm:px-6 py-3 sm:py-4 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-brand transition-all"
               />
             </div>
             
-            <button type="submit" className="btn-primary w-full justify-center py-5 text-lg group">
+            <button type="submit" className="btn-primary w-full justify-center py-4 sm:py-5 text-base sm:text-lg group">
               Create Account <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </form>
 
-          <div className="mt-10 text-center">
-            <p className="text-zinc-500 text-sm">
+          <div className="mt-8 sm:mt-10 text-center">
+            <p className="text-zinc-500 text-xs sm:text-sm">
               Already have an account? {' '}
               <Link to="/login" className="text-brand-dark font-bold hover:underline">Sign in</Link>
             </p>

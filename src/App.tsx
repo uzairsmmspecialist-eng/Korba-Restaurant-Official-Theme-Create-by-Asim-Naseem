@@ -39,7 +39,6 @@ import { Sitemap } from './pages/Sitemap';
 import { BlogPost, blogPosts } from './pages/BlogPost';
 import { NotFound } from './pages/NotFound';
 import { Login, Signup } from './pages/Auth';
-import { Chatbot } from './components/Chatbot';
 
 // --- Shared Components ---
 
@@ -397,15 +396,15 @@ const Home = () => (
             <Star size={14} fill="currentColor" />
             Noshahra's Finest Dining
           </div>
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-8 text-white">
+          <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-8 text-white">
             Authentic <br />
             <span className="text-brand-yellow italic font-serif">Kachay Beef</span> <br />
             Pulao
           </h1>
-          <p className="text-lg sm:text-xl text-zinc-400 max-w-lg mb-12 leading-relaxed font-medium">
+          <p className="text-base sm:text-xl text-zinc-400 max-w-lg mb-12 leading-relaxed font-medium">
             Experience the legendary taste of our slow-cooked beef pulao and charcoal-grilled seekh kababs. A royal feast awaits you.
           </p>
-          <div className="flex flex-wrap gap-5 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 mb-12">
             <Link to="/menu" className="btn-hero">
               Order Your Feast <ChevronRight size={20} />
             </Link>
@@ -496,17 +495,17 @@ const Home = () => (
     <BrandBanner />
 
     {/* The Korba Standard Section */}
-    <section className="py-32 px-6 bg-white">
+    <section className="py-20 sm:py-32 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-24">
+        <div className="text-center mb-16 sm:mb-24">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">The Korba Standard</p>
-          <h2 className="text-5xl font-bold tracking-tight mb-6">A New Layer of Taste</h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto text-lg">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">A New Layer of Taste</h2>
+          <p className="text-zinc-500 max-w-2xl mx-auto text-base sm:text-lg">
             Each culinary technique works independently and seamlessly together to support your entire dining journey.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
           {[
             { icon: UtensilsCrossed, title: 'Precision Cooking', desc: 'Traditional open-fire techniques combined to ensure every protein is cooked to absolute perfection.', img: 'https://picsum.photos/seed/grill-meat/600/400' },
             { icon: ChefHat, title: 'Masterful Coordination', desc: 'Our kitchen operates with the efficiency of a high-tech lab, ensuring your meal arrives at the peak of flavor.', highlight: true, img: 'https://picsum.photos/seed/chef-cooking/600/400' },
@@ -517,7 +516,7 @@ const Home = () => (
                 <img src={feature.img} alt={feature.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
                 <div className={`absolute inset-0 ${feature.highlight ? 'bg-brand/40' : 'bg-black/20'}`} />
               </div>
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors ${feature.highlight ? 'bg-white/20' : 'bg-zinc-100 group-hover:bg-brand-yellow'}`}>
                   <feature.icon size={24} className={feature.highlight ? 'text-white' : 'text-zinc-900'} />
                 </div>
@@ -533,50 +532,50 @@ const Home = () => (
     </section>
 
     {/* Bento Menu Section */}
-    <section id="menu" className="py-32 px-6 bg-zinc-50">
+    <section id="menu" className="py-20 sm:py-32 px-4 sm:px-6 bg-zinc-50">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 sm:mb-20 gap-6 sm:gap-8">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Seasonal Selection</p>
-            <h2 className="text-5xl font-bold tracking-tight">Designed for Every Plate</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Designed for Every Plate</h2>
           </div>
-          <p className="text-zinc-500 max-w-md text-lg">
+          <p className="text-zinc-500 max-w-md text-base sm:text-lg">
             Whether you're exploring our tasting menu, or opting for a classic à la carte experience, our kitchen adapts effortlessly.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-8 h-[1000px] md:h-[700px]">
-          <div className="md:col-span-2 md:row-span-2 bento-card bg-zinc-50 p-0 overflow-hidden relative group">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-none md:grid-rows-2 gap-6 sm:gap-8 min-h-[auto] md:h-[700px]">
+          <div className="sm:col-span-2 md:row-span-2 bento-card bg-zinc-50 p-0 overflow-hidden relative group h-[400px] sm:h-[500px] md:h-auto">
             <img 
               src="https://picsum.photos/seed/pakistan-pulao/1000/1000" 
               alt="Beef Pulao" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               referrerPolicy="no-referrer"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-10 text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
               <span className="text-brand-yellow font-bold text-xs uppercase tracking-[0.3em] mb-3">Signature Dish</span>
-              <h3 className="text-3xl font-bold mb-3">Kachay Beef Pulao</h3>
-              <p className="text-white/70 text-base max-w-xs leading-relaxed">Tender beef, aromatic basmati rice, and our secret blend of spices.</p>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3">Kachay Beef Pulao</h3>
+              <p className="text-white/70 text-sm sm:text-base max-w-xs leading-relaxed">Tender beef, aromatic basmati rice, and our secret blend of spices.</p>
             </div>
           </div>
 
-          <div className="md:col-span-2 bento-card bg-white flex flex-col justify-center p-12 border-l-8 border-brand shadow-xl">
-            <div className="flex items-center gap-5 mb-6">
-              <div className="w-14 h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand">
-                <UtensilsCrossed size={28} />
+          <div className="sm:col-span-2 bento-card bg-white flex flex-col justify-center p-8 sm:p-12 border-l-8 border-brand shadow-xl">
+            <div className="flex items-center gap-4 sm:gap-5 mb-6">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-brand/10 rounded-2xl flex items-center justify-center text-brand shrink-0">
+                <UtensilsCrossed size={24} className="sm:w-7 sm:h-7" />
               </div>
-              <h3 className="text-2xl font-bold">Family Platters</h3>
+              <h3 className="text-xl sm:text-2xl font-bold">Family Platters</h3>
             </div>
-            <p className="text-zinc-500 text-base mb-8 leading-relaxed">Perfect for sharing. Includes Pulao, Seekh Kababs, Tikka, and fresh Naan for the whole family.</p>
+            <p className="text-zinc-500 text-sm sm:text-base mb-8 leading-relaxed">Perfect for sharing. Includes Pulao, Seekh Kababs, Tikka, and fresh Naan for the whole family.</p>
             <div className="flex items-center justify-between border-t border-zinc-100 pt-6">
-              <span className="text-2xl font-bold text-brand">Rs. 3500</span>
+              <span className="text-xl sm:text-2xl font-bold text-brand">Rs. 3500</span>
               <Link to="/menu" className="text-brand font-bold text-sm flex items-center gap-2 group">
                 Order Now <ChevronRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
           </div>
 
-          <div className="bento-card bg-white p-0 overflow-hidden group relative">
+          <div className="bento-card bg-white p-0 overflow-hidden group relative h-[250px] sm:h-auto">
             <img 
               src="https://picsum.photos/seed/pakistan-kabab/600/600" 
               alt="Seekh Kabab" 
@@ -586,7 +585,7 @@ const Home = () => (
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
           </div>
 
-          <div className="bento-card bg-white p-0 overflow-hidden group relative">
+          <div className="bento-card bg-white p-0 overflow-hidden group relative h-[250px] sm:h-auto">
             <img 
               src="https://picsum.photos/seed/pakistan-tea/600/600" 
               alt="Karak Chai" 
@@ -600,12 +599,12 @@ const Home = () => (
     </section>
 
     {/* Food Showcase Scrolling Section */}
-    <section className="py-32 bg-zinc-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Culinary Excellence</h2>
-        <p className="text-zinc-400">A visual journey through our most loved dishes</p>
+    <section className="py-20 sm:py-32 bg-zinc-900 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12 sm:mb-16 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">Culinary Excellence</h2>
+        <p className="text-zinc-400 text-sm sm:text-base">A visual journey through our most loved dishes</p>
       </div>
-      <div className="flex gap-8 animate-marquee-slow">
+      <div className="flex gap-4 sm:gap-8 animate-marquee-slow">
         {[
           'pakistan-curry',
           'pakistan-rice',
@@ -614,8 +613,8 @@ const Home = () => (
           'pakistan-dessert',
           'pakistan-chai'
         ].map((seed, i) => (
-          <div key={i} className="w-[400px] shrink-0 relative group">
-            <div className="aspect-[3/4] rounded-[3rem] overflow-hidden relative">
+          <div key={i} className="w-[280px] sm:w-[400px] shrink-0 relative group">
+            <div className="aspect-[3/4] rounded-[2rem] sm:rounded-[3rem] overflow-hidden relative">
               <img 
                 src={`https://picsum.photos/seed/${seed}/800/1066`} 
                 alt="Food Item" 
@@ -630,19 +629,19 @@ const Home = () => (
     </section>
 
     {/* Expert Chefs Section */}
-    <section className="py-32 px-6 bg-zinc-50 overflow-hidden">
+    <section className="py-20 sm:py-32 px-4 sm:px-6 bg-zinc-50 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-8">
+        <div className="flex flex-col md:flex-row items-center justify-between mb-16 sm:mb-20 gap-6 sm:gap-8">
           <div className="text-center md:text-left">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Culinary Masters</p>
-            <h2 className="text-5xl font-bold tracking-tight">Meet Our Expert Chefs</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">Meet Our Expert Chefs</h2>
           </div>
-          <Link to="/team" className="btn-primary bg-zinc-900 text-white hover:bg-brand hover:text-white border-none">
+          <Link to="/team" className="btn-primary bg-zinc-900 text-white hover:bg-brand hover:text-white border-none w-full sm:w-auto justify-center">
             View Full Team <ArrowRight size={20} />
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10">
           {[
             { name: "Chef Ahmed Khan", role: "Executive Chef", img: "https://i.pravatar.cc/400?u=ahmed", specialty: "Traditional Pulao" },
             { name: "Chef Maria Zain", role: "Head of Pastry", img: "https://i.pravatar.cc/400?u=maria", specialty: "Fusion Desserts" },
@@ -654,18 +653,18 @@ const Home = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-[3rem] overflow-hidden shadow-xl border border-zinc-100 group"
+              className="bg-white rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-xl border border-zinc-100 group"
             >
               <div className="aspect-[4/5] overflow-hidden relative">
                 <img src={chef.img} alt={chef.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                <div className="absolute bottom-8 left-8 right-8 text-white">
-                  <p className="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">{chef.role}</p>
-                  <h3 className="text-2xl font-bold">{chef.name}</h3>
+                <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 text-white">
+                  <p className="text-brand-yellow font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-2">{chef.role}</p>
+                  <h3 className="text-xl sm:text-2xl font-bold">{chef.name}</h3>
                 </div>
               </div>
-              <div className="p-8 text-center">
-                <p className="text-zinc-500 text-sm mb-4 italic">Expert in {chef.specialty}</p>
+              <div className="p-6 sm:p-8 text-center">
+                <p className="text-zinc-500 text-xs sm:text-sm mb-4 italic">Expert in {chef.specialty}</p>
                 <div className="flex justify-center gap-1 text-brand-yellow">
                   {[...Array(5)].map((_, i) => <Star key={i} size={14} fill="currentColor" />)}
                 </div>
@@ -677,14 +676,14 @@ const Home = () => (
     </section>
 
     {/* Testimonials Section with Auto-Scroll */}
-    <section className="py-32 px-6 bg-white overflow-hidden">
+    <section className="py-20 sm:py-32 px-4 sm:px-6 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div className="text-center mb-16 sm:mb-20">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Guest Stories</p>
-          <h2 className="text-5xl font-bold tracking-tight">What Our Guests Are Saying</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">What Our Guests Are Saying</h2>
         </div>
         
-        <div className="flex gap-8 animate-marquee-slow hover:[animation-play-state:paused]">
+        <div className="flex gap-6 sm:gap-8 animate-marquee-slow hover:[animation-play-state:paused]">
           {[
             { name: 'Ali Ahmed', role: 'Food Blogger', text: 'The Beef Pulao is legendary. Best I have had in Noshahra Cantt!' },
             { name: 'Sara Khan', role: 'Local Resident', text: 'Seekh Kababs are so juicy and flavorful. My kids love it!' },
@@ -693,23 +692,23 @@ const Home = () => (
             { name: 'Fatima Noor', role: 'Student', text: 'Affordable and delicious. The Karak Chai is the perfect ending.' },
             { name: 'Usman Ghani', role: 'Business Owner', text: 'Great for family dinners. The service is exceptional.' }
           ].map((testimonial, i) => (
-            <div key={i} className="w-[400px] shrink-0 p-10 rounded-[3rem] bg-zinc-50 border border-zinc-100 hover:shadow-xl transition-all duration-500">
-              <div className="text-brand mb-8">
-                <span className="text-7xl font-serif opacity-30">“</span>
+            <div key={i} className="w-[300px] sm:w-[400px] shrink-0 p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] bg-zinc-50 border border-zinc-100 hover:shadow-xl transition-all duration-500">
+              <div className="text-brand mb-6 sm:mb-8">
+                <span className="text-5xl sm:text-7xl font-serif opacity-30">“</span>
               </div>
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1 mb-4 sm:mb-6">
                 {[...Array(5)].map((_, star) => (
                   <Star key={star} size={14} className="text-brand-yellow fill-brand-yellow" />
                 ))}
               </div>
-              <p className="text-zinc-600 mb-10 text-lg leading-relaxed italic">
+              <p className="text-zinc-600 mb-8 sm:mb-10 text-base sm:text-lg leading-relaxed italic">
                 {testimonial.text}
               </p>
-              <div className="flex items-center gap-5">
-                <img src={`https://i.pravatar.cc/150?u=${i+10}`} className="w-12 h-12 rounded-full border-2 border-brand shadow-md" alt="User" />
+              <div className="flex items-center gap-4 sm:gap-5">
+                <img src={`https://i.pravatar.cc/150?u=${i+10}`} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-brand shadow-md" alt="User" />
                 <div>
-                  <p className="font-bold text-base">{testimonial.name}</p>
-                  <p className="text-xs text-zinc-400 font-bold uppercase tracking-widest">{testimonial.role}</p>
+                  <p className="font-bold text-sm sm:text-base">{testimonial.name}</p>
+                  <p className="text-[10px] sm:text-xs text-zinc-400 font-bold uppercase tracking-widest">{testimonial.role}</p>
                 </div>
               </div>
             </div>
@@ -719,10 +718,10 @@ const Home = () => (
     </section>
 
     {/* Map & Final CTA Section */}
-    <section className="py-32 px-6 bg-zinc-50">
+    <section className="py-20 sm:py-32 px-4 sm:px-6 bg-zinc-50">
       <div className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="rounded-[4rem] overflow-hidden h-[500px] shadow-2xl border-8 border-white relative group">
+        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+          <div className="rounded-[2rem] sm:rounded-[4rem] overflow-hidden h-[300px] sm:h-[500px] shadow-2xl border-4 sm:border-8 border-white relative group order-2 lg:order-1">
             {/* Mock Map Image */}
             <img 
               src="https://picsum.photos/seed/noshahra-map/1000/1000" 
@@ -732,22 +731,22 @@ const Home = () => (
             />
             <div className="absolute inset-0 bg-brand/10 group-hover:bg-transparent transition-colors duration-500" />
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="w-16 h-16 bg-brand rounded-full flex items-center justify-center shadow-2xl animate-bounce">
-                <MapPin size={32} className="text-white" />
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-brand rounded-full flex items-center justify-center shadow-2xl animate-bounce">
+                <MapPin size={24} className="text-white sm:w-8 sm:h-8" />
               </div>
             </div>
           </div>
           
-          <div className="space-y-10">
+          <div className="space-y-6 sm:space-y-10 order-1 lg:order-2 text-center lg:text-left">
             <p className="text-brand font-bold uppercase tracking-[0.3em] text-xs">Visit Us Today</p>
-            <h2 className="text-5xl md:text-6xl font-bold tracking-tight leading-tight">
-              Your Table is <br /> <span className="text-brand">Waiting for You.</span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-tight">
+              Your Table is <br className="hidden sm:block" /> <span className="text-brand">Waiting for You.</span>
             </h2>
-            <p className="text-zinc-500 text-xl leading-relaxed">
+            <p className="text-zinc-500 text-base sm:text-xl leading-relaxed">
               Located in the heart of Noshahra Cantt, we bring you the finest Pakistani cuisine in a setting that feels like home. Don't just take our word for it—come and taste the magic yourself.
             </p>
-            <div className="pt-6">
-              <Link to="/menu" className="btn-primary px-12 py-6 text-xl shadow-2xl shadow-brand/30 group">
+            <div className="pt-4 sm:pt-6 flex justify-center lg:justify-start">
+              <Link to="/menu" className="btn-primary px-8 py-4 sm:px-12 sm:py-6 text-lg sm:text-xl shadow-2xl shadow-brand/30 group w-full sm:w-auto justify-center">
                 Order Something Delicious <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform" />
               </Link>
             </div>
@@ -1044,7 +1043,6 @@ export default function App() {
               </AnimatePresence>
             </main>
             <Footer />
-            <Chatbot />
           </div>
         </BrowserRouter>
       </CartProvider>

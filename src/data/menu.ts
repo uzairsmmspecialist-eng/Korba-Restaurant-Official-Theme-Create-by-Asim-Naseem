@@ -122,7 +122,7 @@ export const MENU_DATA: MenuItem[] = [
     price: 250,
     originalPrice: 400,
     category: 'BBQ & Grilled',
-    image: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&q=80&w=800',
     rating: 4.8,
     reviews: 156
   },
@@ -201,7 +201,7 @@ export const MENU_DATA: MenuItem[] = [
     price: 120,
     originalPrice: 180,
     category: 'Street Food',
-    image: 'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&q=80&w=800',
     rating: 4.7,
     reviews: 198
   },
@@ -260,7 +260,7 @@ export const MENU_DATA: MenuItem[] = [
     price: 100,
     originalPrice: 150,
     category: 'Breads',
-    image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&q=80&w=800',
     rating: 4.8,
     reviews: 210
   },
@@ -308,7 +308,7 @@ export const MENU_DATA: MenuItem[] = [
     price: 200,
     originalPrice: 250,
     category: 'Drinks',
-    image: 'https://images.unsplash.com/photo-1626074353765-517a681e40be?auto=format&fit=crop&q=80&w=800',
+    image: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?auto=format&fit=crop&q=80&w=800',
     rating: 4.7,
     reviews: 210
   },

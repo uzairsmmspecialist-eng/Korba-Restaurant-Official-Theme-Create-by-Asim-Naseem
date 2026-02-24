@@ -176,14 +176,23 @@ const Navbar = () => {
             )}
           </Link>
 
-          {/* New Contact Button */}
+          {/* Enhanced Contact Button */}
           <button 
             onClick={() => setIsContactOpen(true)}
-            className={`p-2 transition-all hover:scale-110 ${isScrolled || !isDarkPage ? 'text-brand' : 'text-brand-yellow'}`}
+            className="hidden sm:flex items-center gap-2 bg-brand hover:bg-brand-dark text-white px-5 py-2.5 rounded-full transition-all shadow-lg shadow-brand/20 hover:scale-105 active:scale-95 group"
           >
-            <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center border border-brand/20">
-              <Phone size={20} />
+            <div className="relative">
+              <Phone size={18} />
+              <span className="absolute -top-1 -right-1 w-2 h-2 bg-brand-yellow rounded-full animate-ping" />
             </div>
+            <span className="text-xs font-black uppercase tracking-widest">Call Now</span>
+          </button>
+
+          <button 
+            onClick={() => setIsContactOpen(true)}
+            className="sm:hidden p-2 text-brand-yellow hover:text-brand transition-colors"
+          >
+            <Phone size={24} />
           </button>
           
           {/* Mobile Menu Toggle */}
@@ -249,16 +258,19 @@ const Navbar = () => {
                   </a>
                 </div>
                 
-                <div className="mt-8 flex flex-col items-center gap-2">
-                  <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">
-                    Available 24/7 for you
-                  </p>
+                <div className="mt-10 pt-8 border-t border-white/10 flex flex-col items-center gap-3">
+                  <div className="flex items-center gap-2 text-brand-yellow">
+                    <Clock size={16} />
+                    <p className="text-xs font-black uppercase tracking-[0.2em]">
+                      Available 24/7 for you
+                    </p>
+                  </div>
                   <Link 
                     to="/menu" 
                     onClick={() => setIsContactOpen(false)}
-                    className="text-brand-yellow font-bold text-sm uppercase tracking-widest hover:text-white transition-colors border-b-2 border-brand-yellow/30 hover:border-brand-yellow pb-1"
+                    className="group flex items-center gap-2 text-white font-bold text-sm uppercase tracking-widest hover:text-brand-yellow transition-colors"
                   >
-                    Explore Our Menu
+                    Explore Our Full Menu <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
@@ -820,9 +832,9 @@ const Home = () => (
     <section className="py-20 sm:py-32 bg-zinc-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mb-12 sm:mb-16 text-center">
         <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">A Culinary Journey Through Our Most Loved Dishes</h2>
-        <p className="text-zinc-400 text-sm sm:text-base">Experience the visual feast of our signature creations</p>
+        <p className="text-zinc-400 text-sm sm:text-base italic font-serif">Experience the visual feast of our signature creations</p>
       </div>
-      <div className="flex gap-4 sm:gap-8 animate-marquee-fast">
+      <div className="flex gap-4 sm:gap-8 animate-marquee-slow">
         {[
           'https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800',
@@ -836,9 +848,6 @@ const Home = () => (
           'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1601050633647-8f8f5f39d1fb?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1589113124855-6a032e624483?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&q=80&w=800',
           // Duplicates for seamless scrolling
           'https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800',
@@ -851,10 +860,7 @@ const Home = () => (
           'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1601050633647-8f8f5f39d1fb?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1589113124855-6a032e624483?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&q=80&w=800'
+          'https://images.unsplash.com/photo-1601050633647-8f8f5f39d1fb?auto=format&fit=crop&q=80&w=800'
         ].map((url, i) => (
           <div key={i} className="w-[280px] sm:w-[400px] shrink-0 relative group">
             <div className="aspect-[3/4] rounded-[2rem] sm:rounded-[3rem] overflow-hidden relative">

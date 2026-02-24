@@ -412,6 +412,8 @@ const Location = () => (
   </section>
 );
 
+import { DemoImporter } from './components/DemoImporter';
+
 const Footer = () => (
   <footer className="bg-zinc-900 pt-24 pb-12 px-6 rounded-t-[4rem] text-white border-t-8 border-brand">
     <div className="max-w-7xl mx-auto">
@@ -438,6 +440,9 @@ const Footer = () => (
                 <Icon size={18} />
               </a>
             ))}
+          </div>
+          <div className="pt-4">
+            <DemoImporter />
           </div>
         </div>
 
@@ -479,6 +484,25 @@ const Footer = () => (
               </div>
               <p className="text-zinc-400 text-sm">+92 (300) 123-4567</p>
             </li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 className="text-lg font-bold mb-8 text-brand-yellow uppercase tracking-widest">Recent Stories</h4>
+          <ul className="space-y-6">
+            {blogPosts.slice(0, 2).map((post) => (
+              <li key={post.id}>
+                <Link to={`/blog/${post.slug}`} className="flex gap-4 group">
+                  <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-white/10">
+                    <img src={post.image} alt={post.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-brand-yellow font-bold uppercase tracking-widest mb-1">{post.category}</p>
+                    <h5 className="text-sm font-bold leading-tight group-hover:text-brand transition-colors line-clamp-2">{post.title}</h5>
+                  </div>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
 

@@ -26,10 +26,41 @@ export const BlogPost = () => {
     .sort(() => 0.5 - Math.random())
     .slice(0, 3);
 
-  // Get 3 random menu items for product recommendations
-  const recommendedProducts = MENU_DATA
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 3);
+  // Smart product recommendations based on blog category
+  const getRelatedProducts = () => {
+    let categoryMatch = '';
+    
+    // Map blog categories to menu categories
+    switch(post.category) {
+      case 'Beverages':
+        categoryMatch = 'Drinks';
+        break;
+      case 'Culinary Secrets':
+      case 'Food History':
+        // Try to match specific keywords in title
+        if (post.title.includes('Beef') || post.title.includes('Chapli')) categoryMatch = 'Beef Specials';
+        else if (post.title.includes('Chicken')) categoryMatch = 'BBQ & Grilled';
+        else categoryMatch = 'Main Dishes';
+        break;
+      case 'Ingredients':
+        categoryMatch = 'Main Dishes';
+        break;
+      default:
+        categoryMatch = 'Main Dishes';
+    }
+
+    const related = MENU_DATA.filter(item => item.category === categoryMatch);
+    
+    // If we found related items, shuffle and take 3
+    if (related.length > 0) {
+      return related.sort(() => 0.5 - Math.random()).slice(0, 3);
+    }
+    
+    // Fallback to random items if no match found
+    return MENU_DATA.sort(() => 0.5 - Math.random()).slice(0, 3);
+  };
+
+  const recommendedProducts = getRelatedProducts();
 
   return (
     <motion.div 
@@ -100,6 +131,7 @@ export const BlogPost = () => {
                       alt={item.name} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                     <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-900 shadow-sm">
                       {item.category}
@@ -144,6 +176,7 @@ export const BlogPost = () => {
                       alt={recPost.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>

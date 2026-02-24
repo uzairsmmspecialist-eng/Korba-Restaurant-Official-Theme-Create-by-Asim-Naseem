@@ -536,7 +536,7 @@ const Home = () => (
           </div>
           <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-8 text-white">
             Authentic <br />
-            <span className="text-brand-yellow italic font-serif">Kachay Beef</span> <br />
+            <span className="text-brand-yellow italic font-serif font-medium tracking-normal">Kanji Kachhi Beef</span> <br />
             Pulao
           </h1>
           <p className="text-sm sm:text-xl text-zinc-400 max-w-[280px] sm:max-w-lg mb-6 sm:mb-8 leading-relaxed font-medium">
@@ -579,18 +579,32 @@ const Home = () => (
           </div>
 
           {/* Hero Scrolling Products */}
-          <div className="relative overflow-hidden py-4 border-y border-white/10">
+          <div className="relative overflow-hidden py-4 border-y border-white/10 mt-8">
             <div className="flex gap-8 animate-marquee whitespace-nowrap">
-              {['Beef Pulao', 'Seekh Kabab', 'Chicken Tikka', 'Karak Chai', 'Special Karahi', 'Shami Kabab'].map((item, i) => (
+              {[
+                { name: 'Beef Pulao', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Seekh Kabab', img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Chicken Tikka', img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Karak Chai', img: 'https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Special Karahi', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Shami Kabab', img: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=100' }
+              ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 bg-brand-yellow rounded-full" />
-                  <span className="text-white/60 text-sm font-bold uppercase tracking-widest">{item}</span>
+                  <img src={item.img} alt={item.name} className="w-8 h-8 rounded-full object-cover border border-white/20" loading="lazy" referrerPolicy="no-referrer" />
+                  <span className="text-white/80 text-sm font-bold uppercase tracking-widest">{item.name}</span>
                 </div>
               ))}
-              {['Beef Pulao', 'Seekh Kabab', 'Chicken Tikka', 'Karak Chai', 'Special Karahi', 'Shami Kabab'].map((item, i) => (
+              {[
+                { name: 'Beef Pulao', img: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Seekh Kabab', img: 'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Chicken Tikka', img: 'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Karak Chai', img: 'https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Special Karahi', img: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=100' },
+                { name: 'Shami Kabab', img: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=100' }
+              ].map((item, i) => (
                 <div key={i+10} className="flex items-center gap-3">
-                  <div className="w-1.5 h-1.5 bg-brand-yellow rounded-full" />
-                  <span className="text-white/60 text-sm font-bold uppercase tracking-widest">{item}</span>
+                  <img src={item.img} alt={item.name} className="w-8 h-8 rounded-full object-cover border border-white/20" loading="lazy" referrerPolicy="no-referrer" />
+                  <span className="text-white/80 text-sm font-bold uppercase tracking-widest">{item.name}</span>
                 </div>
               ))}
             </div>
@@ -611,6 +625,7 @@ const Home = () => (
                   alt="Gourmet Pulao" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="aspect-square rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand/30 shadow-xl group">
@@ -619,6 +634,7 @@ const Home = () => (
                   alt="Spring Rolls" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -629,6 +645,7 @@ const Home = () => (
                   alt="Chicken Shawarma" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="aspect-[4/5] rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand-yellow/30 shadow-xl group">
@@ -637,6 +654,7 @@ const Home = () => (
                   alt="Crispy French Fries" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -664,29 +682,40 @@ const Home = () => (
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 sm:mb-24">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">The Korba Standard</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6">A New Layer of Taste</h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto text-base sm:text-lg">
-            Each culinary technique works independently and seamlessly together to support your entire dining journey.
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 font-serif italic text-zinc-900">A New Layer of Taste</h2>
+          <p className="text-zinc-500 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
+            We don't just cook food; we curate experiences. By blending time-honored recipes with contemporary culinary techniques, we introduce a unique depth of flavor to every dish. Discover the true essence of Pakistani cuisine, reimagined for the modern palate.
           </p>
+          <Link to="/menu" className="inline-flex items-center gap-2 text-brand font-bold uppercase tracking-widest text-sm hover:text-brand-dark transition-colors group">
+            Explore Our Menu <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
           {[
-            { icon: UtensilsCrossed, title: 'Precision Cooking', desc: 'Traditional open-fire techniques combined to ensure every protein is cooked to absolute perfection.', img: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=800' },
-            { icon: ChefHat, title: 'Masterful Coordination', desc: 'Our kitchen operates with the efficiency of a high-tech lab, ensuring your meal arrives at the peak of flavor.', highlight: true, img: 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?auto=format&fit=crop&q=80&w=800' },
-            { icon: Leaf, title: 'Sustainable Sourcing', desc: 'We partner with local farms to bring you ingredients that are not only fresh but ethically produced.', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800' }
+            { icon: UtensilsCrossed, title: 'Precision Cooking', desc: 'Traditional open-fire techniques combined to ensure every protein is cooked to absolute perfection.', img: 'https://images.unsplash.com/photo-1555126634-323283e090fa?auto=format&fit=crop&q=80&w=600' },
+            { icon: ChefHat, title: 'Masterful Coordination', desc: 'Our kitchen operates with the efficiency of a high-tech lab, ensuring your meal arrives at the peak of flavor.', highlight: true, img: 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?auto=format&fit=crop&q=80&w=600' },
+            { icon: Leaf, title: 'Sustainable Sourcing', desc: 'We partner with local farms to bring you ingredients that are not only fresh but ethically produced.', img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=600' }
           ].map((feature, i) => (
-            <div key={feature.title} className={`bento-card group p-0 overflow-hidden relative ${feature.highlight ? 'bg-brand border-none' : 'bg-zinc-50 hover:border-brand-yellow/50'}`}>
+            <div key={feature.title} className={`bento-card group p-0 overflow-hidden relative ${feature.highlight ? 'bg-brand border-none shadow-2xl shadow-brand/20' : 'bg-zinc-50 hover:border-brand-yellow/50 hover:shadow-xl'}`}>
               <div className="h-48 overflow-hidden relative">
-                <img src={feature.img} alt={feature.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                <div className={`absolute inset-0 ${feature.highlight ? 'bg-brand/40' : 'bg-black/20'}`} />
+                <img 
+                  src={feature.img} 
+                  alt={feature.title} 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  loading="lazy"
+                  referrerPolicy="no-referrer" 
+                />
+                <div className={`absolute inset-0 ${feature.highlight ? 'bg-gradient-to-t from-brand/90 to-brand/20' : 'bg-gradient-to-t from-black/60 to-transparent'}`} />
+                <div className="absolute bottom-4 left-6">
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center backdrop-blur-md ${feature.highlight ? 'bg-white/20 text-white' : 'bg-white/90 text-zinc-900'}`}>
+                    <feature.icon size={20} />
+                  </div>
+                </div>
               </div>
               <div className="p-6 sm:p-8">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-colors ${feature.highlight ? 'bg-white/20' : 'bg-zinc-100 group-hover:bg-brand-yellow'}`}>
-                  <feature.icon size={24} className={feature.highlight ? 'text-white' : 'text-zinc-900'} />
-                </div>
-                <h3 className={`text-xl font-bold mb-3 ${feature.highlight ? 'text-white' : ''}`}>{feature.title}</h3>
-                <p className={`text-sm leading-relaxed mb-6 ${feature.highlight ? 'text-white/80' : 'text-zinc-500'}`}>
+                <h3 className={`text-xl font-bold mb-3 ${feature.highlight ? 'text-white' : 'text-zinc-900'}`}>{feature.title}</h3>
+                <p className={`text-sm leading-relaxed ${feature.highlight ? 'text-white/90' : 'text-zinc-500'}`}>
                   {feature.desc}
                 </p>
               </div>
@@ -715,6 +744,7 @@ const Home = () => (
               src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1000" 
               alt="Beef Pulao" 
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              loading="lazy"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6 sm:p-10 text-white">
@@ -745,6 +775,7 @@ const Home = () => (
               src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&q=80&w=600" 
               alt="Gourmet Burger" 
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
@@ -755,6 +786,7 @@ const Home = () => (
               src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=600" 
               alt="Fresh Vegetables" 
               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              loading="lazy"
               referrerPolicy="no-referrer"
             />
             <div className="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition-colors duration-500" />
@@ -790,6 +822,7 @@ const Home = () => (
                 src={url} 
                 alt="Food Item" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-zinc-900/50 opacity-60" />
@@ -835,7 +868,7 @@ const Home = () => (
               className="bg-white rounded-[2rem] sm:rounded-[3rem] overflow-hidden shadow-xl border border-zinc-100 group"
             >
               <div className="aspect-[4/5] overflow-hidden relative">
-                <img src={chef.img} alt={chef.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                <img src={chef.img} alt={chef.name} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" referrerPolicy="no-referrer" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6 sm:bottom-8 sm:left-8 sm:right-8 text-white">
                   <p className="text-brand-yellow font-bold text-[10px] sm:text-xs uppercase tracking-widest mb-2">{chef.role}</p>
@@ -893,7 +926,7 @@ const Home = () => (
                 </div>
               )}
               <div className="flex items-center gap-4 sm:gap-5">
-                <img src={testimonial.img} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-brand shadow-md object-cover" alt="User" />
+                <img src={testimonial.img} className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-brand shadow-md object-cover" alt="User" loading="lazy" referrerPolicy="no-referrer" />
                 <div>
                   <p className="font-bold text-sm sm:text-base">{testimonial.name}</p>
                   <p className="text-[10px] sm:text-xs text-zinc-400 font-bold uppercase tracking-widest">{testimonial.role}</p>
@@ -915,7 +948,7 @@ const Home = () => (
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         className="absolute -right-20 top-0 w-64 h-64 opacity-20 pointer-events-none"
       >
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=400" alt="Floating Food" className="w-full h-full object-contain" />
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=400" alt="Floating Food" className="w-full h-full object-contain" loading="lazy" referrerPolicy="no-referrer" />
       </motion.div>
 
       <div className="max-w-7xl mx-auto px-6 text-center mb-16">
@@ -1042,16 +1075,17 @@ const About = () => (
         >
           <div className="aspect-square rounded-[4rem] overflow-hidden border-8 border-white shadow-2xl">
             <img 
-              src="https://picsum.photos/seed/about-korba/1000/1000" 
+              src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=1000" 
               alt="Our Kitchen" 
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
+              loading="lazy"
             />
           </div>
           <div className="absolute -bottom-10 -right-10 bg-brand p-10 rounded-[3rem] shadow-2xl max-w-[240px]">
             <ChefHat size={40} className="mb-4 text-zinc-900" />
-            <p className="font-bold text-xl mb-2">Executive Chef</p>
-            <p className="text-sm text-zinc-900/70">Marcus Vane, 3-Star Michelin Veteran</p>
+            <p className="font-bold text-xl mb-2 text-white">Executive Chef</p>
+            <p className="text-sm text-white/80">Farman Shah, Master of Pakistani Cuisine</p>
           </div>
         </motion.div>
       </div>

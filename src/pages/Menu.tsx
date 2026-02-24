@@ -132,6 +132,7 @@ export const Menu = () => {
                     alt={item.name} 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur-md rounded-full text-[10px] font-bold uppercase tracking-widest text-zinc-900 shadow-sm">
                     {item.category}

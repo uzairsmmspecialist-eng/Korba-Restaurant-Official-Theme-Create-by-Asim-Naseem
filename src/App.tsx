@@ -205,27 +205,29 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsContactOpen(false)}
-              className="absolute inset-0 bg-zinc-900/80 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/90 backdrop-blur-md"
             />
             <motion.div
               initial={{ scale: 0.9, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
-              className="relative bg-white rounded-[3rem] p-10 sm:p-16 max-w-lg w-full shadow-2xl overflow-hidden"
+              className="relative bg-zinc-900 rounded-[3rem] p-10 sm:p-16 max-w-lg w-full shadow-2xl overflow-hidden border-4 border-brand"
             >
               <div className="absolute top-0 right-0 p-8">
-                <button onClick={() => setIsContactOpen(false)} className="text-zinc-400 hover:text-zinc-900 transition-colors">
+                <button onClick={() => setIsContactOpen(false)} className="text-zinc-500 hover:text-white transition-colors">
                   <X size={24} />
                 </button>
               </div>
               
               <div className="text-center">
-                <div className="w-20 h-20 bg-brand/10 rounded-3xl flex items-center justify-center mx-auto mb-8 text-brand">
+                <div className="w-24 h-24 bg-brand-yellow rounded-full flex items-center justify-center mx-auto mb-8 text-zinc-900 shadow-xl shadow-brand-yellow/20">
                   <Phone size={40} />
                 </div>
-                <h2 className="text-3xl font-bold mb-4">Let's Connect!</h2>
-                <p className="text-zinc-500 mb-10 text-lg leading-relaxed">
-                  Craving the legendary taste of Noshahra? We're just a call or message away. Reach out to us for orders, reservations, or inquiries.
+                <h2 className="text-3xl sm:text-4xl font-black mb-4 tracking-tight text-white">
+                  Let's <span className="text-brand">Connect!</span>
+                </h2>
+                <p className="text-zinc-400 mb-10 text-lg leading-relaxed font-medium">
+                  Craving the legendary taste of Noshahra? We're just a tap away. Reach out for orders, reservations, or just to say hello.
                 </p>
                 
                 <div className="space-y-4">
@@ -233,21 +235,32 @@ const Navbar = () => {
                     href="https://wa.me/923189375460" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 w-full py-5 bg-[#25D366] text-white rounded-2xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-lg shadow-[#25D366]/20"
+                    className="flex items-center justify-center gap-3 w-full py-5 bg-[#25D366] text-white rounded-2xl font-black text-lg hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-[#25D366]/20 group"
                   >
-                    <MessageCircle size={24} /> Chat on WhatsApp
+                    <MessageCircle size={24} className="group-hover:rotate-12 transition-transform" /> 
+                    Chat on WhatsApp
                   </a>
                   <a 
                     href="tel:+923189375460" 
-                    className="flex items-center justify-center gap-3 w-full py-5 bg-brand text-white rounded-2xl font-bold text-lg hover:scale-[1.02] transition-transform shadow-lg shadow-brand/20"
+                    className="flex items-center justify-center gap-3 w-full py-5 bg-gradient-to-r from-red-600 to-red-500 text-white rounded-2xl font-black text-lg hover:from-red-500 hover:to-red-400 hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl shadow-red-600/30 group"
                   >
-                    <Phone size={24} /> Call Us Now
+                    <Phone size={24} className="group-hover:rotate-12 transition-transform" /> 
+                    Call Us Now
                   </a>
                 </div>
                 
-                <p className="mt-8 text-zinc-400 text-sm font-medium">
-                  Available 24/7 for our valued guests.
-                </p>
+                <div className="mt-8 flex flex-col items-center gap-2">
+                  <p className="text-zinc-500 text-xs font-bold uppercase tracking-widest">
+                    Available 24/7 for you
+                  </p>
+                  <Link 
+                    to="/menu" 
+                    onClick={() => setIsContactOpen(false)}
+                    className="text-brand-yellow font-bold text-sm uppercase tracking-widest hover:text-white transition-colors border-b-2 border-brand-yellow/30 hover:border-brand-yellow pb-1"
+                  >
+                    Explore Our Menu
+                  </Link>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -536,7 +549,7 @@ const Home = () => (
           </div>
           <h1 className="text-4xl sm:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.95] mb-8 text-white">
             Authentic <br />
-            <span className="text-brand-yellow italic font-serif font-medium tracking-normal">Kanji Kachhi Beef</span> <br />
+            <span className="text-brand-yellow italic font-serif font-medium tracking-normal">Kaanji Kachi Beef</span> <br />
             Pulao
           </h1>
           <p className="text-sm sm:text-xl text-zinc-400 max-w-[280px] sm:max-w-lg mb-6 sm:mb-8 leading-relaxed font-medium">
@@ -650,8 +663,8 @@ const Home = () => (
               </div>
               <div className="aspect-[4/5] rounded-[1rem] sm:rounded-[3rem] overflow-hidden border border-brand-yellow/30 shadow-xl group">
                 <img 
-                  src="https://images.unsplash.com/photo-1552590635-27c2c2128b15?auto=format&fit=crop&q=80&w=800" 
-                  alt="Crispy French Fries" 
+                  src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&q=80&w=800" 
+                  alt="Special Karahi" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                   loading="lazy"
@@ -681,12 +694,20 @@ const Home = () => (
     <section className="py-20 sm:py-32 px-4 sm:px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 sm:mb-24">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">The Korba Standard</p>
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 font-serif italic text-zinc-900">A New Layer of Taste</h2>
-          <p className="text-zinc-500 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed mb-8">
-            We don't just cook food; we curate experiences. By blending time-honored recipes with contemporary culinary techniques, we introduce a unique depth of flavor to every dish. Discover the true essence of Pakistani cuisine, reimagined for the modern palate.
-          </p>
-          <Link to="/menu" className="inline-flex items-center gap-2 text-brand font-bold uppercase tracking-widest text-sm hover:text-brand-dark transition-colors group">
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-6">The Korba Standard</p>
+          
+          <div className="relative inline-block mb-8 max-w-3xl mx-auto">
+            <p className="text-xl sm:text-3xl font-serif italic text-zinc-800 leading-relaxed px-4">
+              "We don't just cook food, we create experiences by blending time-honored recipes with complementary culinary techniques."
+            </p>
+            <svg className="absolute -bottom-4 left-0 w-full h-3 text-brand-yellow" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <path d="M0 5 Q 2.5 0, 5 5 T 10 5 T 15 5 T 20 5 T 25 5 T 30 5 T 35 5 T 40 5 T 45 5 T 50 5 T 55 5 T 60 5 T 65 5 T 70 5 T 75 5 T 80 5 T 85 5 T 90 5 T 95 5 T 100 5" stroke="currentColor" strokeWidth="2" fill="none" />
+            </svg>
+          </div>
+
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight mb-6 text-zinc-900 mt-8">A New Layer of Taste</h2>
+          
+          <Link to="/menu" className="inline-flex items-center gap-2 text-brand font-bold uppercase tracking-widest text-sm hover:text-brand-dark transition-colors group mt-4">
             Explore Our Menu <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -814,7 +835,26 @@ const Home = () => (
           'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
           'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800',
-          'https://images.unsplash.com/photo-1601050633647-8f8f5f39d1fb?auto=format&fit=crop&q=80&w=800'
+          'https://images.unsplash.com/photo-1601050633647-8f8f5f39d1fb?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1589113124855-6a032e624483?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&q=80&w=800',
+          // Duplicates for seamless scrolling
+          'https://images.unsplash.com/photo-1512132411229-c30391241dd8?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1593560708920-61dd98c46a4e?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1552590635-27c2c2128b15?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1563379091339-03b21bc4a4f8?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1589302168068-964664d93dc0?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1601050633647-8f8f5f39d1fb?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1589113124855-6a032e624483?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80&w=800',
+          'https://images.unsplash.com/photo-1585238342024-78d387f4a707?auto=format&fit=crop&q=80&w=800'
         ].map((url, i) => (
           <div key={i} className="w-[280px] sm:w-[400px] shrink-0 relative group">
             <div className="aspect-[3/4] rounded-[2rem] sm:rounded-[3rem] overflow-hidden relative">

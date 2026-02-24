@@ -19,7 +19,7 @@
 }
 
 .btn-primary {
-  @apply bg-brand hover:bg-brand-dark text-zinc-900 font-semibold px-6 py-3 rounded-full transition-all duration-200 flex items-center gap-2;
+  @apply bg-brand hover:bg-brand-dark text-white font-bold px-6 py-3 rounded-full transition-all duration-200 flex items-center gap-2;
 }
 
 .btn-secondary {
@@ -35,8 +35,8 @@
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; transform: scale(1.02); }
+  0%, 100% { opacity: 1; filter: brightness(1); }
+  50% { opacity: 0.9; filter: brightness(1.2); transform: scale(1.05); }
 }
 
 @keyframes marquee {
@@ -45,15 +45,19 @@
 }
 
 .animate-blink {
-  animation: blink 2s infinite ease-in-out;
+  animation: blink 1.5s infinite ease-in-out;
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 20s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 15s linear infinite;
 }
 
 .animate-marquee-slow {
-  animation: marquee 60s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
 @keyframes float {

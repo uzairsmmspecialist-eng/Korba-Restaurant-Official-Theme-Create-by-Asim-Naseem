@@ -7,21 +7,21 @@ const CHEFS = [
     name: "Chef Ahmed Khan",
     role: "Executive Chef",
     specialty: "Traditional Pulao & Nihari",
-    image: "https://i.pravatar.cc/400?u=ahmed",
+    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=400&h=400",
     bio: "With over 20 years of experience in royal kitchens, Chef Ahmed brings the authentic taste of Noshahra to your plate."
   },
   {
-    name: "Chef Maria Zain",
+    name: "Chef Farman Shah",
     role: "Head of Pastry",
     specialty: "Traditional Desserts",
-    image: "https://i.pravatar.cc/400?u=maria",
-    bio: "Chef Maria specializes in fusion desserts that blend traditional Pakistani sweets with modern pastry techniques."
+    image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=400&h=400",
+    bio: "Chef Farman specializes in fusion desserts that blend traditional Pakistani sweets with modern pastry techniques."
   },
   {
     name: "Chef Zeeshan Ali",
     role: "Grill Master",
     specialty: "Charcoal Seekh Kababs",
-    image: "https://i.pravatar.cc/400?u=zeeshan",
+    image: "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&q=80&w=400&h=400",
     bio: "Master of the open flame, Zeeshan ensures every kabab is smoked to perfection using traditional wood-fire methods."
   }
 ];

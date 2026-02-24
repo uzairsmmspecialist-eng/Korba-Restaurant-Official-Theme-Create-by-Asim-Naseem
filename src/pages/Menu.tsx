@@ -56,7 +56,7 @@ export const Menu = () => {
       <section className="px-4 sm:px-6 pt-12 pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto relative h-[300px] sm:h-[400px] rounded-[2rem] sm:rounded-[3rem] overflow-hidden group">
           <img 
-            src="https://picsum.photos/seed/menubanner/1920/1080" 
+            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1920" 
             alt="Menu Banner" 
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             referrerPolicy="no-referrer"
@@ -152,6 +152,7 @@ export const Menu = () => {
                   </div>
                   
                   <div className="flex items-center gap-3 mb-4">
+                    {renderStars(item.rating)}
                     <span className="text-xs font-bold text-zinc-400">{item.rating} ({item.reviews} reviews)</span>
                   </div>
 
@@ -162,8 +163,18 @@ export const Menu = () => {
                   <div className="flex items-center justify-between mb-8 pt-6 border-t border-zinc-100">
                     <div>
                       <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400 mb-1">Price</p>
-                      <p className="text-2xl font-bold text-zinc-900">Rs. {item.price}</p>
+                      <div className="flex items-center gap-2">
+                        <p className="text-2xl font-bold text-zinc-900">Rs. {item.price}</p>
+                        {item.originalPrice && (
+                          <p className="text-sm text-zinc-400 line-through">Rs. {item.originalPrice}</p>
+                        )}
+                      </div>
                     </div>
+                    {item.originalPrice && (
+                      <div className="px-3 py-1 bg-red-600 text-white text-[10px] font-black uppercase rounded-full animate-pulse">
+                        Sale
+                      </div>
+                    )}
                   </div>
 
                   {/* Order Controls */}
@@ -209,6 +220,47 @@ export const Menu = () => {
           </div>
         )}
       </div>
+
+      {/* Customer Reviews Section */}
+      <section className="py-20 sm:py-32 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16 sm:mb-20">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Real Experiences</p>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight">What Our Customers Say</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
+            {[
+              { name: 'Farman Shah', role: 'Regular Guest', text: 'The Special Biryani is a masterpiece. The balance of spices and the quality of meat is something you won\'t find anywhere else in Noshahra.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100' },
+              { name: 'Kamran Shah', role: 'Food Critic', text: 'Korba has set a new standard for Pakistani cuisine. Their Beef Chapli Kabab is authentic, juicy, and packed with flavor. A truly royal experience.', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100' },
+              { name: 'Zeeshan Ali', role: 'Local Resident', text: 'I\'ve tried many places, but the Karak Chai here is the perfect end to any meal. The ambiance and service make every visit special.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100' }
+            ].map((review, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="bg-zinc-50 p-8 sm:p-10 rounded-[2.5rem] border border-zinc-100 shadow-sm hover:shadow-xl transition-all duration-500"
+              >
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, star) => (
+                    <Star key={star} size={16} className="text-brand-yellow fill-brand-yellow" />
+                  ))}
+                </div>
+                <p className="text-zinc-600 mb-8 text-lg leading-relaxed italic">"{review.text}"</p>
+                <div className="flex items-center gap-4">
+                  <img src={review.img} className="w-12 h-12 rounded-full border-2 border-brand shadow-md object-cover" alt={review.name} />
+                  <div>
+                    <p className="font-bold text-zinc-900">{review.name}</p>
+                    <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest">{review.role}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Compelling Copy Section */}
       <section className="py-32 bg-zinc-900 text-white overflow-hidden relative">

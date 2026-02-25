@@ -233,7 +233,7 @@ export const Menu = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
             {[
               { name: 'Farman Shah', role: 'Regular Guest', text: 'The Special Biryani is a masterpiece. The balance of spices and the quality of meat is something you won\'t find anywhere else in Noshahra.', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100' },
-              { name: 'Kamran Shah', role: 'Food Critic', text: 'Korba has set a new standard for Pakistani cuisine. Their Beef Chapli Kabab is authentic, juicy, and packed with flavor. A truly royal experience.', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100' },
+              { name: 'Kamran Shah', role: 'Food Critic', text: 'Kurban has set a new standard for Pakistani cuisine. Their Beef Chapli Kabab is authentic, juicy, and packed with flavor. A truly royal experience.', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100' },
               { name: 'Zeeshan Ali', role: 'Local Resident', text: 'I\'ve tried many places, but the Karak Chai here is the perfect end to any meal. The ambiance and service make every visit special.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100' }
             ].map((review, i) => (
               <motion.div 
@@ -268,12 +268,12 @@ export const Menu = () => {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <p className="text-brand font-bold uppercase tracking-[0.3em] text-xs mb-8">The Korba Philosophy</p>
+              <p className="text-brand font-bold uppercase tracking-[0.3em] text-xs mb-8">The Kurban Philosophy</p>
               <h2 className="text-5xl md:text-6xl font-bold tracking-tight mb-10 leading-tight">
                 More Than Just a Meal, <br /> It's a <span className="text-brand">Legacy.</span>
               </h2>
               <p className="text-zinc-400 text-xl leading-relaxed mb-12">
-                At Korba, we believe that food is the ultimate connector. Our recipes have been passed down through generations, refined with modern precision to bring you an experience that is both nostalgic and groundbreaking.
+                At Kurban, we believe that food is the ultimate connector. Our recipes have been passed down through generations, refined with modern precision to bring you an experience that is both nostalgic and groundbreaking.
               </p>
               <div className="flex flex-wrap gap-8">
                 <div className="flex items-center gap-4">
@@ -300,7 +300,7 @@ export const Menu = () => {
               <div className="bg-zinc-800 rounded-[3rem] p-12 border border-white/10 relative">
                 <Quote className="text-brand opacity-20 absolute top-10 right-10" size={80} />
                 <p className="text-2xl font-serif italic leading-relaxed mb-10 relative z-10">
-                  "The Beef Nihari at Korba is quite simply the best I've had in all of Pakistan. The depth of flavor is unparalleled, and the service is as refined as the food itself."
+                  "The Beef Nihari at Kurban is quite simply the best I've had in all of Pakistan. The depth of flavor is unparalleled, and the service is as refined as the food itself."
                 </p>
                 <div className="flex items-center gap-5">
                   <img src="https://i.pravatar.cc/150?u=critic" className="w-16 h-16 rounded-full border-2 border-brand shadow-xl" alt="Critic" />

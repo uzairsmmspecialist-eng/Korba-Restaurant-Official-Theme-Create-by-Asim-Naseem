@@ -4,7 +4,7 @@ import { MessageCircle, X, Send, Mic, MicOff, Phone } from 'lucide-react';
 import { GoogleGenAI, LiveServerMessage, Modality } from '@google/genai';
 
 const SYSTEM_INSTRUCTION = `
-You are the official AI assistant for Korba Restaurant, located in Noshahra Cantt, KPK, Pakistan.
+You are the official AI assistant for Kurban Restaurant, located in Noshahra Cantt, KPK, Pakistan.
 Your job is to assist customers with information about the restaurant, menu, location, and ordering.
 
 Key Information:
@@ -20,7 +20,7 @@ Be polite, helpful, and concise. If someone asks to order, guide them to the Men
 export const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<{ role: 'user' | 'model', text: string }[]>([
-    { role: 'model', text: 'Hello! Welcome to Korba Restaurant. How can I help you today?' }
+    { role: 'model', text: 'Hello! Welcome to Kurban Restaurant. How can I help you today?' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -179,7 +179,7 @@ export const Chatbot = () => {
             {/* Header */}
             <div className="bg-brand p-4 text-white flex items-center justify-between">
               <div>
-                <h3 className="font-bold">Korba Assistant</h3>
+                <h3 className="font-bold">Kurban Assistant</h3>
                 <p className="text-xs text-white/80">Ask me anything about our menu or location</p>
               </div>
               <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-white/20 rounded-full transition-colors">

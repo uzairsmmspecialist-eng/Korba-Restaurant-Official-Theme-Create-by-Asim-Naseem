@@ -88,7 +88,7 @@ const Navbar = () => {
     setIsMobileMenuOpen(false);
   }, [location.pathname]);
 
-  const isDarkPage = location.pathname === '/' || location.pathname === '/blog';
+  const isDarkPage = location.pathname === '/';
   const textColorClass = isScrolled 
     ? 'text-zinc-900' 
     : (isDarkPage ? 'text-white' : 'text-zinc-900');
@@ -114,7 +114,7 @@ const Navbar = () => {
             <UtensilsCrossed size={22} className="text-white" />
           </div>
           <span className={`text-2xl font-black tracking-tighter ${textColorClass}`}>
-            KORBA<span className="text-brand">.</span>
+            KURBAN<span className="text-brand">.</span>
           </span>
         </Link>
         
@@ -126,7 +126,7 @@ const Navbar = () => {
               className={`text-sm font-bold uppercase tracking-widest transition-all hover:scale-105 ${
                 location.pathname === item.path 
                   ? 'text-brand border-b-2 border-brand' 
-                  : (isScrolled ? 'text-zinc-600 hover:text-brand' : (isDarkPage ? 'text-white/80 hover:text-brand-yellow' : 'text-zinc-600 hover:text-brand'))
+                  : (isScrolled ? 'text-zinc-900 hover:text-brand' : (isDarkPage ? 'text-white/80 hover:text-brand-yellow' : 'text-zinc-900 hover:text-brand'))
               }`}
             >
               {item.name}
@@ -161,13 +161,13 @@ const Navbar = () => {
             </AnimatePresence>
             <button 
               onClick={() => setShowSearch(!showSearch)}
-              className={`p-2 transition-colors hidden sm:block ${isScrolled || !isDarkPage ? 'text-zinc-600 hover:text-brand' : 'text-white hover:text-brand-yellow'}`}
+              className={`p-2 transition-colors hidden sm:block ${isScrolled || !isDarkPage ? 'text-zinc-900 hover:text-brand' : 'text-white hover:text-brand-yellow'}`}
             >
               <Search size={20} />
             </button>
           </div>
 
-          <Link to="/checkout" className={`relative p-2 transition-colors ${isScrolled || !isDarkPage ? 'text-zinc-600 hover:text-brand' : 'text-white hover:text-brand-yellow'}`}>
+          <Link to="/checkout" className={`relative p-2 transition-colors ${isScrolled || !isDarkPage ? 'text-zinc-900 hover:text-brand' : 'text-white hover:text-brand-yellow'}`}>
             <ShoppingBag size={24} />
             {totalItems > 0 && (
               <span className="absolute -top-1 -right-1 bg-brand-yellow text-zinc-900 text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-zinc-900">
@@ -314,7 +314,7 @@ const Navbar = () => {
                 </div>
                 <div className="flex items-center gap-4 mb-6 text-zinc-600">
                   <Mail size={18} className="text-brand" />
-                  <span className="text-sm font-medium">hello@korba.com</span>
+                  <span className="text-sm font-medium">hello@kurban.com</span>
                 </div>
                 
                 <div className="flex gap-4">
@@ -363,7 +363,7 @@ const Location = () => (
             />
           </div>
           
-          <a href="https://www.google.com/maps/search/Korba+Restaurant+Nowshera+Cantt" target="_blank" rel="noopener noreferrer" className="block w-full h-full relative z-20">
+          <a href="https://www.google.com/maps/search/Kurban+Restaurant+Nowshera+Cantt" target="_blank" rel="noopener noreferrer" className="block w-full h-full relative z-20">
             <img 
               src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000" 
               alt="Noshahra Cantt Map" 
@@ -413,6 +413,7 @@ const Location = () => (
 );
 
 import { DemoImporter } from './components/DemoImporter';
+import { SystemReplicator } from './components/SystemReplicator';
 
 const Footer = () => (
   <footer className="bg-zinc-900 pt-24 pb-12 px-6 rounded-t-[4rem] text-white border-t-8 border-brand">
@@ -423,7 +424,7 @@ const Footer = () => (
             <div className="w-12 h-12 bg-brand rounded-xl flex items-center justify-center shadow-lg shadow-brand/20">
               <UtensilsCrossed size={24} className="text-white" />
             </div>
-            <span className="text-3xl font-black tracking-tighter">KORBA<span className="text-brand-yellow">.</span></span>
+            <span className="text-3xl font-black tracking-tighter">KURBAN<span className="text-brand-yellow">.</span></span>
           </Link>
           <p className="text-zinc-400 leading-relaxed">
             Crafting culinary excellence through the fusion of tradition and innovation. Experience the legendary taste of Noshahra Cantt.
@@ -441,8 +442,9 @@ const Footer = () => (
               </a>
             ))}
           </div>
-          <div className="pt-4">
+          <div className="pt-4 space-y-4">
             <DemoImporter />
+            <SystemReplicator />
           </div>
         </div>
 
@@ -967,7 +969,7 @@ const Home = () => (
         
         <div className="flex gap-6 sm:gap-8 animate-marquee-fast hover:[animation-play-state:paused]">
           {[
-            { name: 'Ali Ahmed', role: 'Food Blogger', text: 'The Beef Pulao at Korba is quite simply the best I have ever had in Noshahra Cantt. The depth of flavor in the rice and the tenderness of the beef are unparalleled. It is a dish that truly honors the rich culinary heritage of Pakistan.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100' },
+            { name: 'Ali Ahmed', role: 'Food Blogger', text: 'The Beef Pulao at Kurban is quite simply the best I have ever had in Noshahra Cantt. The depth of flavor in the rice and the tenderness of the beef are unparalleled. It is a dish that truly honors the rich culinary heritage of Pakistan.', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=100&h=100' },
             { name: 'Sara Khan', role: 'Local Resident', text: 'Seekh Kababs are so juicy and flavorful. My kids love it! We have been coming here for years and the quality has never wavered. It is our go-to spot for any family celebration or just a casual weekend dinner.', img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=100&h=100' },
             { name: 'Kamran Shah', role: 'Foodie', text: 'The Chicken Tikka is perfectly spiced and grilled. A true masterpiece of BBQ! The smoky aroma and the perfectly charred edges make it an irresistible treat. I highly recommend it to anyone visiting Noshahra.', isSpecial: true, img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=100&h=100' },
             { name: 'Farman Shah', role: 'Traveler', text: 'A must-visit place. The ambiance and food are both top-notch. I was blown away by the attention to detail in every dish. The staff is incredibly hospitable, making you feel like royalty from the moment you step in.', isSpecial: true, img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=100&h=100' },
@@ -1117,7 +1119,7 @@ const About = () => (
             Refined by <span className="text-brand-yellow italic">Tradition</span>
           </h1>
           <p className="text-lg text-zinc-500 mb-8 leading-relaxed">
-            Founded in 2018, Korba Restaurant was built on a simple premise: that dining should be an immersive experience that engages all five senses. We combine traditional heirloom recipes from Noshahra Cantt with modern culinary techniques.
+            Founded in 2018, Kurban Restaurant was built on a simple premise: that dining should be an immersive experience that engages all five senses. We combine traditional heirloom recipes from Noshahra Cantt with modern culinary techniques.
           </p>
           <p className="text-lg text-zinc-500 mb-12 leading-relaxed">
             Our team of master chefs work in tandem to explore the rich heritage of Pakistani cuisine, ensuring that every bite is a celebration of flavor and culture.
@@ -1195,7 +1197,7 @@ const Blog = () => {
     >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">The Korba Journal</p>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">The Kurban Journal</p>
           <h1 className="text-6xl font-bold tracking-tight mb-6">Culinary Insights</h1>
           <p className="text-zinc-500 max-w-2xl mx-auto text-lg">
             Explore the stories, traditions, and secrets behind our kitchen.
@@ -1298,7 +1300,7 @@ const Contact = () => (
               </div>
               <div>
                 <h3 className="font-bold text-xl mb-2">Email</h3>
-                <p className="text-zinc-500">hello@korba-restaurant.com</p>
+                <p className="text-zinc-500">hello@kurban-restaurant.com</p>
               </div>
             </div>
           </div>

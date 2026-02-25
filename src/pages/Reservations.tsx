@@ -67,7 +67,7 @@ export const Reservations = () => {
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-brand mb-4">Reservations</p>
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 sm:mb-8">Book Your Table</h1>
             <p className="text-zinc-500 text-base sm:text-lg mb-8 sm:mb-12 leading-relaxed">
-              Experience royal dining at Korba. Whether it's a family dinner or a special celebration, we ensure your experience is legendary.
+              Experience royal dining at Kurban. Whether it's a family dinner or a special celebration, we ensure your experience is legendary.
             </p>
 
             <div className="space-y-6 sm:space-y-8">

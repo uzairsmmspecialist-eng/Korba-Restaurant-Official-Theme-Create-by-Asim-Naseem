@@ -34,7 +34,7 @@ export const Checkout = () => {
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold mb-4 sm:mb-6">Order Confirmed!</h1>
         <p className="text-lg sm:text-xl text-zinc-500 mb-8 sm:mb-12 leading-relaxed">
-          Thank you for choosing Korba. Your feast is being prepared with precision and will be at your doorstep in Noshahra Cantt shortly.
+          Thank you for choosing Kurban. Your feast is being prepared with precision and will be at your doorstep in Noshahra Cantt shortly.
           {paymentMethod !== 'cod' && (
             <span className="block mt-4 text-brand font-bold">
               Our team will verify your {paymentMethod === 'bank' ? 'Bank Transfer' : paymentMethod === 'jazzcash' ? 'JazzCash' : 'EasyPaisa'} payment shortly.

@@ -1,0 +1,119 @@
+/*
+Theme Name: Kurban Restaurant Theme
+Theme URI: https://kurban.com
+Author: AI Assistant
+Description: A modern, high-performance restaurant theme inspired by Kurban.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: kurban
+*/
+
+:root {
+  --brand: #DC2626;
+  --brand-yellow: #FACC15;
+  --brand-dark: #B91C1C;
+  --zinc-900: #18181b;
+  --zinc-950: #09090b;
+  --zinc-400: #a1a1aa;
+  --zinc-500: #71717a;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--zinc-950);
+  color: white;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn-hero {
+  background-color: var(--brand-yellow);
+  color: var(--zinc-900);
+  font-weight: 700;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 25px -5px rgba(250, 204, 21, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 10px;
+  width: fit-content;
+}
+
+@media (min-width: 640px) {
+  .btn-hero {
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-hero:hover {
+  background-color: white;
+  transform: scale(1.05);
+}
+
+.btn-hero:active {
+  transform: scale(0.95);
+}
+
+.btn-hero-alt {
+  background-color: var(--brand);
+  color: white;
+  font-weight: 700;
+  padding: 0.625rem 1rem;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 10px;
+  width: fit-content;
+}
+
+@media (min-width: 640px) {
+  .btn-hero-alt {
+    padding: 1.25rem 2.5rem;
+    font-size: 1rem;
+  }
+}
+
+.btn-hero-alt:hover {
+  background-color: var(--brand-dark);
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 7s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+.italic-serif {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+}

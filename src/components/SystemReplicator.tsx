@@ -139,6 +139,15 @@ export const SystemReplicator = () => {
         Download System Blueprint (vT)
       </button>
 
+      <a 
+        href="/kurban-theme.zip"
+        download
+        className="flex items-center gap-2 px-6 py-3 bg-brand-yellow text-zinc-900 rounded-full hover:bg-white transition-all text-[10px] font-black uppercase tracking-widest shadow-lg shadow-brand-yellow/20"
+      >
+        <Download size={14} />
+        Download WordPress Theme (Ready to Use)
+      </a>
+
       <AnimatePresence>
         {showModal && (
           <div className="fixed inset-0 z-[250] flex items-center justify-center p-6">
